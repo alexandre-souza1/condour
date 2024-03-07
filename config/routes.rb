@@ -17,11 +17,11 @@ Rails.application.routes.draw do
 
   resources :condominia do
     resources :services
-    end
+  end
 
-resources :condominia do
+  resources :condominia do
     resources :places
-    end
+  end
 
 
   # Defines the root path route ("/")
