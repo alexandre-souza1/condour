@@ -1,2 +1,39 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1629224834618-1cf72b367162?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
+  <div class="container">
+    <h1>A primeira rede social de condominios do Brasil!</strong>!</h1>
+    <p>Tenha acesso a comunidades, reunioes, agendamentos e muito mais!</p>
+    <a class="btn btn-primary text-white" href="#">indique seu condominio!</a>
+  </div>
+</div>
+
+<div class="container card-home p-3">
+  <h2>Mais do que um app de condominio, somos:</h2>
+  <div class="row d-flex justify-content-evenly">
+        <div class="col-3">
+      <div class="row d-flex justify-content-center">
+        <%= image_tag 'schedule.png', class: 'white-card-images'%>
+      </div>
+      <div class="row d-flex justify-content-center text-center">
+        <h3>Agendamentos de servicos e espaços diretamente pelo app</h3>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="row d-flex justify-content-center">
+        <%= image_tag 'social.png', class: 'white-card-images'%>
+      </div>
+      <div class="row d-flex justify-content-center text-center">
+        <h3>Comunidades, publicações, avisos e muito mais</h3>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="row d-flex justify-content-center">
+        <%= image_tag 'rent.png', class: 'white-card-images'%>
+      </div>
+      <div class="row d-flex justify-content-center text-center">
+        <h3>Anuncio de aluguel e venda de imoveis disponivel para todos</h3>
+      </div>
+    </div>
+</div>
+</div>
