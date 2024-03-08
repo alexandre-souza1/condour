@@ -15,7 +15,6 @@ class CondominiaController < ApplicationController
 
   def create
     @condominium = Condominium.new(condominium_params)
-    @condominium.user = current_user
     if @condominium.save
       redirect_to condominium_path(@condominium), notice: 'O condomínio foi criado com sucesso'
     else
