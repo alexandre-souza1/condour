@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :places
   end
 
+  resources :residents, only: %i[index edit update]
 
   # Defines the root path route ("/")
   # root "posts#index"
