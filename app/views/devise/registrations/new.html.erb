@@ -12,10 +12,6 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "Last name" }%>
-    <%= f.input :condominium_id,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "condominium" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -25,6 +21,9 @@
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
+                required: true,
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :role, collection: User.roles,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
   </div>

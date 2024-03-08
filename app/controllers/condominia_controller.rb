@@ -51,7 +51,7 @@ class CondominiaController < ApplicationController
   end
 
   def require_admin
-    unless current_user.role == "admin"
+    unless current_user.syndic?
       redirect_to root_path, alert: "Apenas administradores podem realizar esta ação."
     end
   end
