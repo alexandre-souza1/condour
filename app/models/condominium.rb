@@ -1,4 +1,5 @@
 class Condominium < ApplicationRecord
+  has_many_attached :photos
   has_many :users
   has_many :posts
   has_many :services
