@@ -15,7 +15,6 @@ class CondominiaController < ApplicationController
 
   def create
     @condominium = Condominium.new(condominium_params)
-    @condominium.user = current_user
     if @condominium.save
       redirect_to condominium_path(@condominium), notice: 'O condomínio foi criado com sucesso'
     else
@@ -37,6 +36,7 @@ class CondominiaController < ApplicationController
   end
 
   def update
+    @condominium = Condominium.find(params[:id])
     if @condominium.update(condominium_params)
       redirect_to condominium_path(@condominium), notice: 'Condomínio atualizado com sucesso'
     else
