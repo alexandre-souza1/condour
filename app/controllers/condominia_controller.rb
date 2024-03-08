@@ -37,6 +37,7 @@ class CondominiaController < ApplicationController
   end
 
   def update
+    @condominium = Condominium.find(params[:id])
     if @condominium.update(condominium_params)
       redirect_to condominium_path(@condominium), notice: 'Condomínio atualizado com sucesso'
     else
