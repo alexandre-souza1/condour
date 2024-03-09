@@ -2,7 +2,9 @@
   <div class="container">
     <h1>A primeira rede social de condominios do Brasil!</strong>!</h1>
     <p>Tenha acesso a comunidades, reuniões, agendamentos e muito mais!</p>
-    <a class="btn btn-primary text-white" href="#">Cadastre seu condominio!</a>
+    <%= link_to new_condominium_path, class: "text-decoration-none btn btn-primary text-white" do %>
+    Cadastre seu condominio!
+    <% end %>
   </div>
 </div>
 
@@ -52,7 +54,7 @@
   <div class="cards-trip">
     <% @condominia.shuffle.take(3).each do |condominium| %>
         <div class="card-trip">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <img src="<%= condominium.photos.first.url %>" />
           <div class="card-trip-infos">
           <%= link_to condominium_path(condominium), class: "text-decoration-none" do %>
             <div>
