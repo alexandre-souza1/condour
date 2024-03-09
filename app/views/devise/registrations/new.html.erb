@@ -28,7 +28,7 @@
             <%= f.input :password_confirmation,
                         required: true,
                         input_html: { autocomplete: "new-password" } %>
-            <%= f.input :role, as: :boolean, boolean_style: :inline, checked_value: 'syndic', unchecked_value: 'default_role',
+            <%= f.input :role, as: :boolean, boolean_style: :inline, checked_value: 'syndic', unchecked_value: '',
                         required: true,
                         label: 'É sindico ou admistra um condomínio?' %>
           </div>
