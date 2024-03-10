@@ -1,45 +1,48 @@
-<div class="banner-cond" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1629224834618-1cf72b367162?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
-</div>
+  <!-- Aqui inicia o Banner -->
 
-<div class="d-flex">
- <div class="menu">
-  <div class="card-home p-4">
-    <h1>Bem-vindo ao Condomínio</h1>
-    <h1><%= @condominium.name %>!</h1>
+  <div class="banner-cond" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1629224834618-1cf72b367162?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
   </div>
-  <p></p>
-  <p></p>
-    <div class="card-btn p-3">
-      <ul>
-        <a class="d-flex btn btn-primary m-auto text-white font-weight-bold" href="#">Home</a>
-        <p></p>
-        <a class="d-flex btn btn-primary m-auto text-white font-weight-bold" href="#">Comunidade</a>
-        <p></p>
-        <a class="d-flex btn btn-primary m-auto text-white font-weight-bold" href="#">Agendamentos</a>
-        <p></p>
-        <a class="d-flex btn btn-primary m-auto text-white font-weight-bold" href="#">Eventos</a>
-        <p></p>
-        <a class="d-flex btn btn-primary m-auto text-white font-weight-bold" href="#">Portaria</a>
-        <p></p>
-        <a class="d-flex btn btn-primary m-auto text-white font-weight-bold" href="#">Regras do Condomínio</a>
-        <p></p>
-        <a class="d-flex btn btn-primary m-auto text-white font-weight-bold" href="#">Apartamentos para Alugar</a>
-      </ul>
+
+  <div class="container d-flex">
+   <div class="menu">
+    <div class="card-cond p-4"> <!--Aqui inicia o cartão de Boas Vindas ao condomínio -->
+     <h1>Bem-vindo ao Condomínio</h1>
+     <h1><%= @condominium.name %>!</h1>
     </div>
     <p></p>
-  </div>
+    <p></p>
+    <div class="card-btn p-3"> <!--Aqui iniciam os botões laterais -->
+     <ul>
+      <a class="d-flex btn btn-primary m-auto text-white font-weight-bold" href="#">Home</a>
+       <p></p>
+      <a class="d-flex btn btn-primary m-auto text-white font-weight-bold" href="#">Comunidade</a>
+        <p></p>
+      <a class="d-flex btn btn-primary m-auto text-white font-weight-bold" href="#">Agendamentos</a>
+        <p></p>
+      <a class="d-flex btn btn-primary m-auto text-white font-weight-bold" href="#">Eventos</a>
+        <p></p>
+      <a class="d-flex btn btn-primary m-auto text-white font-weight-bold" href="#">Portaria</a>
+        <p></p>
+      <a class="d-flex btn btn-primary m-auto text-white font-weight-bold" href="#">Regras do Condomínio</a>
+        <p></p>
+      <a class="d-flex btn btn-primary m-auto text-white font-weight-bold" href="#">Apartamentos para Alugar</a>
+     </ul>
+    </div>
+     <p></p>
+   </div>
 
-     <div class="page">
-      <div class="child d-flex card-orange">
-        <P>HOME</P>
-      </div>
+   <div class="page"> <!--Aqui inicia a div com os carrosseis, eventos e avisos -->
 
-      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-       <div class="carousel-indicators">
+    <div class="card-orange"> <!--Aqui inicia a divisão laranja -->
+     <P>HOME</P>
+    </div>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"> <!--Bem-vindo ao carrossel Home -->
+     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
+     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img src="https://images.unsplash.com/photo-1629224834618-1cf72b367162?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Arraiá">
@@ -60,12 +63,26 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  <div class="child d-flex card-orange">
 
-        <P>Avisos do Condomínio</P>
-      </div>
+  <div class="title"> <!--Aqui é uma Div para os títulos -->
+   <p>Próximos Eventos:</p>
+  </div>
 
-      <div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="carousel">
+  <div class="event"> <!--Aqui inicia os cartões dos eventos-->
+    <a href="#" class="event-card">Segunda-feira</a>
+    <a href="#" class="event-card">Terça-feira</a>
+    <a href="#" class="event-card">Quarta-feira</a>
+    <a href="#" class="event-card">Quinta-feira</a>
+    <a href="#" class="event-card">Sexta-feira</a>
+    <a href="#" class="event-card">Sábado</a>
+     <a href="#" class="event-card">Domingo</a>
+  </div>
+
+  <div class="title">
+    <P>Avisos do Condomínio:</P> <!--Aqui é uma Div para os títulos -->
+  </div>
+
+  <div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -90,6 +107,6 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
-  </div>
-</div>
+      </div>
+   </div>
 </div>
