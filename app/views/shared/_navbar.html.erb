@@ -5,7 +5,7 @@
       <%= image_tag "logoname.png", class: "name-logo" %>
     <% end %>
 
-        <%= form_with url: root_path, method: :get, class: "search-form-control form-group" do %>
+        <%= form_with url: condominia_path, method: :get, class: "search-form-control form-group" do %>
       <%= text_field_tag :query,
             params[:query],
             class: "form-control string required",
