@@ -1,0 +1,147 @@
+.banner-cond {
+  background-size: 100%;
+  background-position: center;
+  padding: 150px 0;
+}
+
+.card-home {
+  color: white;
+  background-color: #030020;
+  border-radius: 16px;
+  top: -90px;
+  width: 300px;
+  height: 250px;
+  text-align: center;
+  justify-content: center;
+ }
+
+.card-btn {
+  color: white;
+  background-color: #030020;
+  border-radius: 16px;
+  width: 300px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center
+  }
+
+
+.card-orange {
+  background-color: #FC6736;
+  color: white;
+  border-radius: 16px;
+  width: 888px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 90px;
+  margin-top: 10px;
+
+  p { margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-orange {
+    width: 90%; /* Reduz a largura do card-orange para telas menores */
+    margin: 0 auto; /* Centraliza horizontalmente */
+  }
+  #carouselExampleIndicators {
+    width: 90%; /* Reduz a largura do carrossel para telas menores */
+    margin: 0 auto; /* Centraliza horizontalmente */
+
+  #carouselExampleIndicators2 {
+    width: 90%; /* Reduz a largura do carrossel para telas menores */
+    margin: 0 auto; /* Centraliza horizontalmente */
+
+    }
+  }
+}
+
+/* Estilos para o carrossel */
+#carouselExampleIndicators {
+  width: 90%; /* Largura do carrossel */
+  margin: 0 auto 10% 10%; /* Centraliza horizontalmente e ajusta o espaço à direita */
+}
+
+/* Estilos para o carrossel em telas menores */
+.carousel-item img {
+  max-width: 100%; /* Imagens dentro do carrossel ocupam toda a largura */
+  height: 300px; /* Altura ajustada automaticamente para manter a proporção */
+}
+
+/* Estilos para os indicadores do carrossel */
+.carousel-indicators {
+  bottom: 10px; /* Posiciona os indicadores na parte inferior do carrossel */
+}
+
+.carousel-indicators button {
+  width: 10px; /* Tamanho dos botões indicadores */
+  height: 10px;
+  border-radius: 50%; /* Formato circular */
+  border: none; /* Remove a borda */
+  background-color: rgba(255, 255, 255, 0.5); /* Cor de fundo dos botões indicadores */
+  margin: 0 5px; /* Espaçamento entre os botões indicadores */
+}
+
+.carousel-indicators .active {
+  background-color: #fff; /* Cor de fundo do botão indicador ativo */
+}
+
+/* Estilos para os controles do carrossel */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 40px; /* Largura dos controles */
+  height: 40px; /* Altura dos controles */
+  background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo dos controles */
+  border-radius: 50%; /* Formato circular */
+  border: none; /* Remove a borda */
+  top: 50%; /* Posiciona os controles verticalmente no centro */
+  transform: translateY(-50%); /* Ajusta a posição vertical */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  color: #fff; /* Cor dos ícones dos controles */
+}
+
+.carousel-control-prev {
+  left: -30px; /* Posiciona o controle 'Previous' para a esquerda */
+}
+
+.carousel-control-next {
+  right: -30px; /* Posiciona o controle 'Next' para a direita */
+}
+
+
+
+/*#carouselAvisoSindico*/
+
+/*Aqui inicia-se o segundo carousel */
+
+#carouselExampleIndicators2 {
+  width: 90%; /* Largura do carrossel */
+  margin: 0 auto 10% 10%; /* Centraliza horizontalmente e ajusta o espaço à direita */
+}
+
+/* Estilos para o carrossel em telas menores */
+#carouselExampleIndicators2 .carousel-item img {
+  max-width: 100%; /* Imagens dentro do carrossel ocupam toda a largura */
+  height: 300px; /* Altura ajustada automaticamente para manter a proporção */
+}
+
+/* Estilos para os indicadores do carrossel */
+#carouselExampleIndicators2 .carousel-indicators {
+  bottom: 10px; /* Posiciona os indicadores na parte inferior do carrossel */
+}
+
+#carouselExampleIndicators2 .carousel-indicators button {
+  width: 10px; /* Tamanho dos botões indicadores */
+  height: 10px;
+  border-radius: 50%; /* Formato circular */
+  border: none; /* Remove a borda */
+  background-color: rgba(255, 255, 255, 0.5); /* Cor de fundo dos botões indicadores */
+  margin: 0 5px; /* Espaçamento entre os botões indicadores */
+}
