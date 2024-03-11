@@ -1,39 +1,39 @@
 <!-- Aqui inicia o Banner -->
 
-  <div class="banner-cond" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1629224834618-1cf72b367162?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
+  <div class="banner-cond" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @condominium.photos.first.url %>);">
   </div>
 
   <div class="container d-flex">
    <div class="menu">
-    <div class="card-cond p-4"> <!--Aqui inicia o cartão de Boas Vindas ao condomínio -->
-     <h1>Bem-vindo ao Condomínio</h1>
-     <h1><%= @condominium.name %>!</h1>
+    <div class="card-cond p-2"> <!--Aqui inicia o cartão de Boas Vindas ao condomínio -->
+     <h4>Bem-vindo ao,</h4>
+     <h2 class=""><%= @condominium.name %>!</h2>
     </div>
-    <p></p>
-    <p></p>
-    <div class="card-btn p-3"> <!--Aqui iniciam os botões laterais -->
-     <ul>
-      <a class="d-flex btn btn-primary m-auto text-white font-weight-bold" href="#">Home</a>
-       <p></p>
-      <a class="d-flex btn btn-primary m-auto text-white font-weight-bold" href="#">Comunidade</a>
-        <p></p>
-      <%= link_to condominium_services_path(@condominium), title: "Agendamentos" do %>
-        <button class="d-flex btn btn-primary m-auto text-white font-weight-bold text-decoration-none">Agendamentos</button>
+    <div class="card-btn p-3 d-flex flex-column justify-content-between mt-1"> <!--Aqui iniciam os botões laterais -->
+       <%= link_to condominium_path(@condominium), title: "Home" do %>
+        <button class="d-flex btn btn-primary text-white font-weight-bold text-decoration-none w-100 p-2">Home</button>
       <% end %>
-        <p></p>
-      <a class="d-flex btn btn-primary m-auto text-white font-weight-bold" href="#">Eventos</a>
-        <p></p>
-      <a class="d-flex btn btn-primary m-auto text-white font-weight-bold" href="#">Portaria</a>
-        <p></p>
-      <a class="d-flex btn btn-primary m-auto text-white font-weight-bold" href="#">Regras do Condomínio</a>
-        <p></p>
-      <a class="d-flex btn btn-primary m-auto text-white font-weight-bold" href="#">Apartamentos para Alugar</a>
-     </ul>
+       <%= link_to condominium_path(@condominium), title: "Comunidade" do %>
+        <button class="d-flex btn btn-primary text-white font-weight-bold text-decoration-none w-100 p-2">Comunidade</button>
+      <% end %>
+      <%= link_to condominium_services_path(@condominium), title: "Agendamento de Manutenção" do %>
+        <button class="d-flex btn btn-primary text-white font-weight-bold text-decoration-none w-100 p-2">Manutenção</button>
+      <% end %>
+      <%= link_to condominium_places_path(@condominium), title: "Reservas de area comum" do %>
+        <button class="d-flex btn btn-primary text-white font-weight-bold text-decoration-none w-100 p-2">Reservas</button>
+      <% end %>
+      <%= link_to condominium_path(@condominium), title: "Portaria`" do %>
+        <button class="d-flex btn btn-primary text-white font-weight-bold text-decoration-none w-100 p-2">Portaria</button>
+      <% end %>
+      <%= link_to condominium_path(@condominium), title: "Regras do Condominio" do %>
+        <button class="d-flex btn btn-primary text-white font-weight-bold text-decoration-none w-100 p-2">Regras do Condominio</button>
+      <% end %>
+      <%= link_to condominium_path(@condominium), title: "Apartamentos para alugar" do %>
+        <button class="d-flex btn btn-primary text-white font-weight-bold text-decoration-none w-100 p-2">Apartamentos para Alugar</button>
+      <% end %>
     </div>
-     <p></p>
    </div>
 
-   <%= render "shared/agendamentos" %>
-   <!--render "shared/condo_show" -->
+   <%= render "shared/condo_show" %>
 
 </div>
