@@ -1,7 +1,8 @@
 class PlacesController < ApplicationController
+  before_action :set_condominium, only: [:new, :create, :destroy, :index]
 
   def index
-    @place = Place.where(condominium_id: @condominium.id).order(created_at: :desc)
+    @places = Place.where(condominium_id: @condominium.id).order(created_at: :desc)
   end
 
   def show
@@ -48,6 +49,10 @@ class PlacesController < ApplicationController
   end
 
   private
+
+  def set_condominium
+    @condominium = Condominium.find(params[:condominium_id])
+  end
 
   def place_params
     params.require(:place).permit(:name, :price, :description, photos: [])
