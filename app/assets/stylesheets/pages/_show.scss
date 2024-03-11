@@ -1,0 +1,204 @@
+.banner-cond {/* Adiciona as configurações do banner do topo */
+  background-size: 100%;
+  background-position: center;
+  padding: 150px 0;
+}
+
+.card-cond {/* Adiciona as configurações do card com o bem-vindo ao condomínio */
+  color: white;
+  background-color: #030020;
+  border-radius: 16px;
+  margin-top: -90px;
+  width: 100%;
+  height: 250px;
+  text-align: center;
+  justify-content: center;
+ }
+
+.card-btn {/* Adiciona as configurações do card dos botões de menu laterais esquerdos */
+  color: white;
+  background-color: #030020;
+  border-radius: 16px;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center
+  }
+
+
+.card-orange { /* Adiciona as configurações do card de divisão Laranja */
+  background-color: #FC6736;
+  color: white;
+  border-radius: 16px;
+  width: 888px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 90px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+   p {
+    margin: 0;
+  }
+}
+
+.title { /* Adiciona as configurações dos títulos Eventos e Avisos */
+  border-radius: 16px;
+  width: 888px;
+  height: 50px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-left: 90px;
+  margin-top: 2px;
+  position: relative;
+}
+
+/* Estilo para a linha em cima de .title */
+.title::before {
+  content: "";
+  position: absolute;
+  top: -1px; /* Posiciona 1px acima de .events */
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: gray; /* Cor da linha */
+  box-shadow: 2px 4px 6px gray;
+}
+
+.event { /* Adiciona as configurações do card maior onde estão contidos os cards menores de eventos */
+  border-radius: 16px;
+  width: 888px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 90px;
+  margin-top: 10px;
+  margin-bottom:  10px;
+  position: relative; /* Adiciona posição relativa */
+  }
+
+.event-card { /* Adiciona as configurações do card laranja menor onde estão contidos os eventos */
+  background-color: #FC6736;
+  color: white;
+  border-radius: 4px;
+  width: 120px;
+  height: 150px;
+  display: inline-block;
+  margin: auto;
+  margin-bottom: 10%;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Estilos para o carrossel Home */
+#carouselExampleIndicators {
+  width: 90%; /* Largura do carrossel */
+  margin: 10px auto 10% 10%; /* Centraliza horizontalmente e ajusta o espaço à direita */
+}
+
+/* Estilos para o carrossel em telas menores */
+.carousel-item img {
+  max-width: 100%; /* Imagens dentro do carrossel ocupam toda a largura */
+  height: 300px; /* Altura ajustada automaticamente para manter a proporção */
+}
+
+/* Estilos para os indicadores do carrossel */
+.carousel-indicators {
+  bottom: 10px; /* Posiciona os indicadores na parte inferior do carrossel */
+}
+
+.carousel-indicators button {
+  width: 10px; /* Tamanho dos botões indicadores */
+  height: 10px;
+  border-radius: 50%; /* Formato circular */
+  border: none; /* Remove a borda */
+  background-color: rgba(255, 255, 255, 0.5); /* Cor de fundo dos botões indicadores */
+  margin: 0 5px; /* Espaçamento entre os botões indicadores */
+}
+
+.carousel-indicators .active {
+  background-color: #fff; /* Cor de fundo do botão indicador ativo */
+}
+
+/* Estilos para os controles do carrossel */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 40px; /* Largura dos controles */
+  height: 40px; /* Altura dos controles */
+  background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo dos controles */
+  border-radius: 50%; /* Formato circular */
+  border: none; /* Remove a borda */
+  top: 50%; /* Posiciona os controles verticalmente no centro */
+  transform: translateY(-50%); /* Ajusta a posição vertical */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  color: #fff; /* Cor dos ícones dos controles */
+}
+
+.carousel-control-prev {
+  left: -30px; /* Posiciona o controle 'Previous' para a esquerda */
+}
+
+.carousel-control-next {
+  right: -30px; /* Posiciona o controle 'Next' para a direita */
+}
+
+
+
+/*Aqui inicia-se o Carroussel Avisos */
+
+#carouselExampleIndicators2 {
+  width: 90%; /* Largura do carrossel */
+  margin: 0 auto 10% 10%; /* Centraliza horizontalmente e ajusta o espaço à direita */
+}
+
+/* Estilos para o carrossel em telas menores */
+#carouselExampleIndicators2 .carousel-item img {
+  max-width: 100%; /* Imagens dentro do carrossel ocupam toda a largura */
+  height: 300px; /* Altura ajustada automaticamente para manter a proporção */
+}
+
+/* Estilos para os indicadores do carrossel */
+#carouselExampleIndicators2 .carousel-indicators {
+  bottom: 10px; /* Posiciona os indicadores na parte inferior do carrossel */
+}
+
+#carouselExampleIndicators2 .carousel-indicators button {
+  width: 10px; /* Tamanho dos botões indicadores */
+  height: 10px;
+  border-radius: 50%; /* Formato circular */
+  border: none; /* Remove a borda */
+  background-color: rgba(255, 255, 255, 0.5); /* Cor de fundo dos botões indicadores */
+  margin: 0 5px; /* Espaçamento entre os botões indicadores */
+}
+
+
+/*Aqui inicia a parte da redução para caber em sites responsivos*/
+
+@media (max-width: 540px) {
+  .card-orange {
+    width: 90%;  /*Reduz a largura do card-orange para telas menores */
+    margin: 0 auto; /* Centraliza horizontalmente */
+  }
+  #carouselExampleIndicators {
+    width: 90%; /* Reduz a largura do carrossel para telas menores */
+    margin: 0 auto; /* Centraliza horizontalmente */
+  }
+  .events {
+    width: 90%;  /*Reduz a largura do card-orange para telas menores */
+    margin: 0 auto; /* Centraliza horizontalmente */
+  }
+  #carouselExampleIndicators2 {
+    width: 90%; /* Reduz a largura do carrossel para telas menores */
+    margin: 0 auto; /* Centraliza horizontalmente */
+
+  }
+}
