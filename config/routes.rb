@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     resources :services
   end
 
+  resources :services, only: :show
+
   resources :condominia do
     resources :places
   end
