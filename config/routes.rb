@@ -16,14 +16,18 @@ Rails.application.routes.draw do
   end
 
   resources :condominia do
-    resources :services
+    resources :services, only: %i[new create index]
   end
+
+  resources :services, except: %i[new create index]
 
   resources :condominia do
     resources :places, only: %i[new create index]
   end
 
-  resources :places, except: %i[new create index]
+  resources :places, except: %i[new create index] do
+    resources :rentals, only: %i[new create index]
+  end
 
   resources :residents, only: %i[index edit update]
 

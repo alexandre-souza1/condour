@@ -10,10 +10,11 @@ class ServicesController < ApplicationController
 
   def new
     @service = Service.new
+    @condominium = Condominium.find(params[:condominium_id])
   end
 
   def create
-    @service = Service.new(params [:id])
+    @service = Service.new(service_params)
     @service.user = current_user
     if @service.save
       redirect_to condominium_service_path(@service), notice: 'the service order was successfully created.'
@@ -24,7 +25,7 @@ class ServicesController < ApplicationController
 
   private
 
-  def Service_params
-    params.require(:order).permit(:type, :identification, :date, :time)
+  def service_params
+    params.require(:service).permit(:type, :identification, :date, :time)
   end
 end
