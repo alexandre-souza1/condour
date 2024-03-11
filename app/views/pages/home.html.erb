@@ -2,7 +2,9 @@
   <div class="container">
     <h1>A primeira rede social de condominios do Brasil!</strong>!</h1>
     <p>Tenha acesso a comunidades, reuniões, agendamentos e muito mais!</p>
-    <a class="btn btn-primary text-white" href="#">Cadastre seu condominio!</a>
+    <%= link_to new_condominium_path, class: "text-decoration-none btn btn-primary text-white" do %>
+    Cadastre seu condominio!
+    <% end %>
   </div>
 </div>
 
@@ -36,4 +38,52 @@
       </div>
     </div>
 </div>
+</div>
+
+<div class="container p-3">
+  <div class="row d-flex justify-content-between">
+    <div class="col d-flex align-items-center">
+      <div class="row d-none">
+        <h2>Tenha todo o condominio na palma da sua mão!</h2>
+      </div>
+      <div class="row">
+      <ul>
+        <li>Traga o social para os condominos com a aba condominios</li>
+        <li>Autorizacoes de entrada? agora é facil com a aba portaria!</li>
+        <li>Precisa alugar um apartamento? com a aba alugueis coloque seu imovel em poucos segundos!</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <%= image_tag 'family-1.png', class: 'image-home-family'%>
+    </div>
+  </div>
+</div>
+
+<div class="container card-home-condos p-3">
+  <div class="row d-flex justify-content-between">
+  <div class="col-6">
+    <h2>Alguns de nossos condomínios:</h2>
+  </div>
+  <div class="col-4 d-flex justify-content-end">
+    <%= link_to condominia_path, title: "Minhas Compras" do %>
+      <button class="btn btn-primary text-white">Veja todos os condomínios</button>
+    <% end %>
+  </div>
+  </div>
+  <div class="cards-trip">
+    <% @condominia.shuffle.take(3).each do |condominium| %>
+        <div class="card-trip">
+          <img src="<%= condominium.photos.first.url %>" />
+          <div class="card-trip-infos">
+          <%= link_to condominium_path(condominium), class: "text-decoration-none" do %>
+            <div>
+              <h2><%= condominium.name %></h2>
+              <p><%= truncate(condominium.address, length: 35, omission: '...') %></p>
+            </div>
+          <% end %>
+          </div>
+        </div>
+    <% end %>
+  </div>
 </div>
