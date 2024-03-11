@@ -5,11 +5,9 @@
         <div class="bg-white rounded p-3 shadow">
           <h3>Agende o serviço de Manutenção</h3>
           <%= simple_form_for [@condominium, @service] do |f| %>
-          <%= f.input :name, label: "Nome do Condomínio" %>
-          <%= f.input :address, label: "Endereço" %>
-          <%= f.input :cnpj, label: "CNPJ" %>
-          <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Adicionar imagem do condomínio" %>
-          <%= f.button :submit, "Registrar Condomínio", class: "btn btn-primary ml-auto text-white font-weight-bold" %>
+          <%= f.input :type, label: "Tipo de Manutenção" %>
+          <%= f.input :identification, label: "Identificação do Prestador de Serviço" %>
+          <%= f.button :submit, "Agendar Manutenção", class: "btn btn-primary ml-auto text-white font-weight-bold" %>
           <% end %>
         </div>
       </div>
