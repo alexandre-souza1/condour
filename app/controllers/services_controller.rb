@@ -1,7 +1,7 @@
 class ServicesController < ApplicationController
 
   def index
-    @service = Service.where(condominium_id: @condominium.id).order(created_at: :desc)
+    @service = Service.where(condominium_id: @condominium).order(created_at: :desc)
   end
 
   def show

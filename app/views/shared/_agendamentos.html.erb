@@ -1,0 +1,41 @@
+<div class="page"> <!--Aqui inicia a div com os carrosseis, eventos e avisos -->
+
+    <div class="card-orange"> <!--Aqui inicia a divisão laranja -->
+     <P>AGENDAMENTOS</P>
+    </div>
+
+    <div class="title"> <!--Aqui é uma Div para os títulos -->
+   <p>Próximos Eventos:</p>
+  </div>
+
+  <div class="event"> <!--Aqui inicia os cartões dos eventos-->
+    <a href="#" class="event-card">Segunda-feira</a>
+    <a href="#" class="event-card">Terça-feira</a>
+    <a href="#" class="event-card">Quarta-feira</a>
+    <a href="#" class="event-card">Quinta-feira</a>
+    <a href="#" class="event-card">Sexta-feira</a>
+    <a href="#" class="event-card">Sábado</a>
+     <a href="#" class="event-card">Domingo</a>
+  </div>
+
+  <div class="card-blue d-flex flex-column">
+
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="text-md-left">O que vamos agendar hoje?</h3>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <%= link_to new_condominium_service_path(@condominium), title: "Manutenção" do %>
+        <div class="event-agend">Manutenção
+        </div>
+      <% end %>
+      <%= link_to condominium_places_path(@condominium), title: "Aluguel de Áreas do Condomínio" do %>
+        <div class="event-agend">Aluguel
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
