@@ -20,8 +20,10 @@ Rails.application.routes.draw do
   end
 
   resources :condominia do
-    resources :places
+    resources :places, only: %i[new create index]
   end
+
+  resources :places, except: %i[new create index]
 
   resources :residents, only: %i[index edit update]
 
