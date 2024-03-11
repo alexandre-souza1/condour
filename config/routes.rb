@@ -25,7 +25,9 @@ Rails.application.routes.draw do
     resources :places, only: %i[new create index]
   end
 
-  resources :places, except: %i[new create index]
+  resources :places, except: %i[new create index] do
+    resources :rentals, only: %i[new create index]
+  end
 
   resources :residents, only: %i[index edit update]
 
