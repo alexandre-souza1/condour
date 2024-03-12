@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'rules/index'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -17,6 +18,10 @@ Rails.application.routes.draw do
 
   resources :condominia do
     resources :services, only: %i[new create index]
+  end
+
+  resources :condominia do
+    resources :rules, only: %i[index]
   end
 
   resources :services, except: %i[new create index]
