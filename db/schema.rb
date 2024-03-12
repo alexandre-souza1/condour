@@ -91,6 +91,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_12_181651) do
     t.index ["user_id"], name: "index_rentals_on_user_id"
   end
 
+  create_table "rules", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "services", force: :cascade do |t|
     t.string "description"
     t.string "identification"
