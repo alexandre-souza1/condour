@@ -24,6 +24,15 @@ class RentalsController < ApplicationController
     end
   end
 
+  def destroy
+    @rental = Rental.find(params[:id])
+    if @rental.destroy
+      redirect_to place_rentals_path(@rental), notice: "Agendamento Excluído com sucesso."
+    else
+      redirect_to place_rentals_path(@rental), notice: 'A ordem de compra não foi excluída'
+    end
+  end
+
   private
 
   def rental_params
