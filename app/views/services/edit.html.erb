@@ -1,0 +1,21 @@
+<div class="bg-sessions">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12 col-md-6 offset-lg-3 mb-10">
+        <div class="bg-white rounded p-3 shadow">
+          <h3>Edite o serviço de Manutenção</h3>
+          <%= simple_form_for [@condominium, @service] do |f| %>
+          <%= f.input :description, label: "Tipo de Manutenção", input_html: { value: @service.description } %>
+          <%= f.input :identification, label: "Identificação do Prestador de Serviço", input_html: { value: @service.identification } %>
+          <%= f.input :date,
+            label: "Data",
+            as: :string,
+            input_html: { data: { controller: "datepicker-manutencao" }, value: @service.date } %>
+          <%= f.input :time, label: "Horário:", as: :time, input_html: { class: "form-control", value: @service.time.strftime("%d/%m/%Y") } %>
+          <%= f.button :submit, "Editar Manutenção", class: "btn btn-primary ml-auto text-white font-weight-bold" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
