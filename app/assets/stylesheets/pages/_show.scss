@@ -20,6 +20,7 @@
   width: 100%;
   height: 400px;
   text-align: center;
+  margin: auto;
   }
 
 
@@ -32,9 +33,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 90px;
-  margin-top: 10px;
-  margin-bottom: 20px;
 
    p {
     margin: 0;
@@ -48,7 +46,6 @@
   display: flex;
   justify-content: left;
   align-items: center;
-  margin-left: 90px;
   margin-top: 2px;
   position: relative;
 }
@@ -72,7 +69,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 90px;
   margin-top: 10px;
   margin-bottom:  10px;
   position: relative; /* Adiciona posição relativa */
@@ -95,7 +91,7 @@
 /* Estilos para o carrossel Home */
 #carouselExampleIndicators {
   width: 90%; /* Largura do carrossel */
-  margin: 10px auto 10% 10%; /* Centraliza horizontalmente e ajusta o espaço à direita */
+  margin: 10px 0px 10px 0px; /* Centraliza horizontalmente e ajusta o espaço à direita */
 }
 
 /* Estilos para o carrossel em telas menores */
@@ -153,7 +149,7 @@
 
 #carouselExampleIndicators2 {
   width: 90%; /* Largura do carrossel */
-  margin: 0 auto 10% 10%; /* Centraliza horizontalmente e ajusta o espaço à direita */
+  mmargin: 10px 0px 10px 0px; /* Centraliza horizontalmente e ajusta o espaço à direita */
 }
 
 /* Estilos para o carrossel em telas menores */
@@ -183,7 +179,6 @@
   width: 888px;
   height: 50%;
   display: flex;
-  margin-left: 90px;
   margin-top: 10px;
   margin-bottom:  10px;
   position: relative; /* Adiciona posição relativa */
