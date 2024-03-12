@@ -1,36 +1,29 @@
-<div class="bg-sessions">
-  <div class="container py-5">
-    <div class="row">
-      <div class="col-12 col-md-6 offset-lg-3">
-        <div class="bg-white rounded p-3 shadow">
+<div class="container m-4 p-5">
+  <div class="col-12 col-md-6 offset-lg-3">
+    <div class="bg-white rounded p-3 shadow">
 
-        <h1 class="text-center">Reservas deste local:</h1>
+    <h1 class="text-center">Reservas deste local:</h1>
 
-        <ul>
-          <% @rental.each_with_index do |rental, index| %>
+      <% @rental.each_with_index do |rental, index| %>
+      <div class="card-rental mt-3">
+      <%= image_tag rental.place.photos[0] %>
 
-          <div class="card-product m-4 d-flex justify-content-between">
-          <%= image_tag rental.place.photos[0] %>
-
-              <div class="card-product-infos ">
-                <h2><%= rental.place.name %></h2>
-                <p>Data: <%= rental.date %></p>
-                <p>Horário da reserva: <%= rental.time.strftime("%H:%M") %></p>
-              </div>
+        <div class="card-rental-infos ">
+          <h2><%= rental.place.name %></h2>
+          <p>Data: <%= rental.date.strftime("%d/%m/%Y") %></p>
+          <p>Horário da reserva: <%= rental.time.strftime("%H:%M") %></p>
+        </div>
 
             <!-- <div class="d-flex justify-content-end"> -->
-              <%= link_to place_rentals_path(@rental),
-                title: "Clique aqui para cancelar essa reserva!",
-                data: {turbo_method: :delete, turbo_confirm: "Tem certeza que deseja cancelar?"} do %>
-                <button class="btn btn-primary text-white font-bold me-4"><i class="fa-solid fa-trash"></i> Cancelar </button>
-              <% end %>
+        <%= link_to place_rentals_path(@rental),
+          title: "Clique aqui para cancelar essa reserva!",
+          data: {turbo_method: :delete, turbo_confirm: "Tem certeza que deseja cancelar?"} do %>
+          <button class="btn btn-primary text-white font-bold me-4"><i class="fa-solid fa-trash"></i> Cancelar </button>
+        <% end %>
             <!-- </div> -->
 
-          </div>
-        <% end %>
-      </ul>
-        </div>
-      </div>
+    </div>
+    <% end %>
     </div>
   </div>
 </div>
