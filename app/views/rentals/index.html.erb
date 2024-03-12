@@ -15,7 +15,7 @@
         </div>
 
             <!-- <div class="d-flex justify-content-end"> -->
-        <%= link_to place_rentals_path(@rental),
+        <%= link_to rental_path(rental),
           title: "Clique aqui para cancelar essa reserva!",
           data: {turbo_method: :delete, turbo_confirm: "Tem certeza que deseja cancelar?"} do %>
           <button class="btn btn-primary text-white font-bold me-4"><i class="fa-solid fa-trash"></i> Cancelar </button>
