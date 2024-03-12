@@ -1,4 +1,6 @@
-<div class="container m-4 p-5">
+<%= render "shared/menu_style" %>
+
+<div class="container card-home-condos p-3">
   <%= link_to new_condominium_service_path(params[:condominium_id]), class: "d-flex justify-content-end" do %>
     <button class="btn btn-primary ml-auto text-white font-weight-bold"><i class="fa-solid fa-plus"></i> Novo Agendamento</button>
   <% end %>
@@ -28,4 +30,5 @@
 
     </div>
   <% end  %>
+</div>
 </div>

@@ -1,4 +1,5 @@
 class ServicesController < ApplicationController
+  before_action :set_condominium, only: [:new, :create, :index]
 
   def index
     @services = Service.where(user_id: current_user).order(date: :asc)
@@ -17,7 +18,7 @@ class ServicesController < ApplicationController
     @service = Service.new(service_params)
     @service.user = current_user
     if @service.save
-      redirect_to condominium_services_path(@service), notice: 'the service order was successfully created.'
+      redirect_to condominium_services_path, notice: 'the service order was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -45,6 +46,10 @@ class ServicesController < ApplicationController
   end
 
   private
+
+  def set_condominium
+    @condominium = Condominium.find(params[:condominium_id])
+  end
 
   def service_params
     params.require(:service).permit(:description, :identification, :date, :time)
