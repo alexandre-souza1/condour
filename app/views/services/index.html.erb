@@ -1,1 +1,31 @@
-<h1>Hellooo</h1>
+<div class="container m-4 p-5">
+  <%= link_to new_condominium_service_path(params[:condominium_id]), class: "d-flex justify-content-end" do %>
+    <button class="btn btn-primary ml-auto text-white font-weight-bold"><i class="fa-solid fa-plus"></i> Novo Agendamento</button>
+  <% end %>
+
+  <% @services.each_with_index do |service, index| %>
+    <div class="card-manutencao mt-3">
+      <%= image_tag "manutencao.png", class: "imagem" %>
+
+      <div class="card-manutencao-infos">
+        <h2><%= service.description %><i icon="teenyicons:edit-solid"></i></h2>
+        <p><%= service.identification %> virá no dia <strong><%= service.date.strftime("%d/%m/%Y") %> às <%= service.time.hour %>:<%= service.time.min %>h!</strong></p>
+
+      </div>
+
+      <div class="card-manutencao-links mt-3 d-flex flex-column align-items: center">
+          <%= link_to service_path(service),
+            title: "Clique aqui para excluir este agendamento",
+            data: {turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir?"} do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+
+          <%= link_to edit_service_path(service),
+            title: "Clique aqui para editar este agendamento" do %>
+            <i class="fa-solid fa-edit"></i>
+          <% end %>
+        </div>
+
+    </div>
+  <% end  %>
+</div>
