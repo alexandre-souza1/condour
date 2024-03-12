@@ -10,6 +10,7 @@
             as: :string,
             input_html: { data: { controller: "datepicker" } } %>
             <%= f.input :time, label: "Horário:" %>
+            <%= f.input :price, label: "Valor de Reserva R$:", input_html: { value: @place.price, disabled: true } %>
             <%= f.button :submit, "Reservar Local", class: "btn btn-primary ml-auto text-white font-weight-bold" %>
           <% end %>
         </div>
