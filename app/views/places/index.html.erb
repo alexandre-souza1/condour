@@ -18,7 +18,7 @@
         <div class="card-trip">
           <img src="<%= place.photos.first.url %>" />
           <div class="card-trip-infos">
-          <%= link_to place_path(place), class: "text-decoration-none" do %>
+          <%= link_to new_place_rental_path(place), class: "text-decoration-none" do %>
             <div>
               <h2><%= place.name %></h2>
               <p><%= truncate(place.description, length: 35, omission: '...') %></p>
@@ -30,5 +30,5 @@
   </div>
 </div>
 </div>
-  </div>
+</div>
 </div>
