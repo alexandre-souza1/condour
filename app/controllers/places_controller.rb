@@ -19,7 +19,7 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     @place.condominium = @condominium
     if @place.save
-      redirect_to place_path(@place), notice: 'O local foi criado com sucesso'
+      redirect_to condominium_places_path(@condominium), notice: 'O local foi criado com sucesso'
     else
       render :new, status: :unprocessable_entity
     end
