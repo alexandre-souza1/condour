@@ -4,7 +4,7 @@
       <div class="col-12 col-md-6 offset-lg-3 mb-10">
         <div class="bg-white rounded p-3 shadow">
           <h3>Edite o serviço de Manutenção</h3>
-          <%= simple_form_for [@condominium, @service] do |f| %>
+          <%= simple_form_for @service do |f| %>
           <%= f.input :description, label: "Tipo de Manutenção", input_html: { value: @service.description } %>
           <%= f.input :identification, label: "Identificação do Prestador de Serviço", input_html: { value: @service.identification } %>
           <%= f.input :date,

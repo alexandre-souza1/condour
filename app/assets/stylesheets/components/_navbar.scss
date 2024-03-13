@@ -38,7 +38,7 @@
 .search-form-control .form-control {
   height: 2.5rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  border: 1px solid #FC6736;
+  border: 2px solid #FC6736;
   border-radius: 8px;
 }
 
@@ -47,4 +47,8 @@
   outline: none !important;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   border-radius: 8px;
+}
+
+.avatar{
+  border: 2px solid #FC6736;
 }
