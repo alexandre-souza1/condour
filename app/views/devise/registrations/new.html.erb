@@ -28,13 +28,16 @@
             <%= f.input :password_confirmation,
                         required: true,
                         input_html: { autocomplete: "new-password" } %>
+            <%= f.input :photo,
+                        required: false,
+                        input_html: { autocomplete: "photo" } %>
             <%= f.input :role, as: :boolean, boolean_style: :inline, checked_value: 'syndic', unchecked_value: '',
                         required: true,
                         label: 'É sindico ou admistra um condomínio?' %>
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "Sign up" %>
+            <%= f.button :submit, "Sign up",  class: "btn btn-primary ml-auto text-white font-weight-bold" %>
           </div>
         <% end %>
 
