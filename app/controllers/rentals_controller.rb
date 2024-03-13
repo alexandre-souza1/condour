@@ -1,5 +1,6 @@
 class RentalsController < ApplicationController
   before_action :set_place, only: %i[index create new]
+  before_action :set_condominium, only: %i[my_rentals index]
 
   def index
     @rental = Rental.where(place: @place).order(created_at: :desc)
@@ -7,6 +8,11 @@ class RentalsController < ApplicationController
 
   def show
     @rental = Rental.find(params[:id])
+  end
+
+  def my_rentals
+    @rentals = Rental.where(user: current_user).order(created_at: :desc)
+    @condominium = Condominium.find(params[:condominium_id])
   end
 
   def new
@@ -18,7 +24,7 @@ class RentalsController < ApplicationController
     @rental.place = @place
     @rental.user = current_user
     if @rental.save
-      redirect_to place_rentals_path(@place), notice: 'the rental order was successfully created.'
+      redirect_to condominium_my_rentals_path(@place), notice: 'the rental order was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -34,6 +40,10 @@ class RentalsController < ApplicationController
   end
 
   private
+
+  def set_condominium
+    @condominium = Condominium.find(params[:condominium_id])
+  end
 
   def rental_params
     params.require(:rental).permit(:date, :time)

@@ -19,8 +19,11 @@
       <%= link_to condominium_services_path(@condominium), title: "Agendamento de Manutenção" do %>
         <button class="d-flex btn btn-primary text-white font-weight-bold text-decoration-none w-100 p-2">Manutenção</button>
       <% end %>
+      <%= link_to condominium_my_rentals_path(@condominium), title: "Reservas de area comum" do %>
+        <button class="d-flex btn btn-primary text-white font-weight-bold text-decoration-none w-100 p-2">Minhas Reservas</button>
+      <% end %>
       <%= link_to condominium_places_path(@condominium), title: "Reservas de area comum" do %>
-        <button class="d-flex btn btn-primary text-white font-weight-bold text-decoration-none w-100 p-2">Reservas</button>
+        <button class="d-flex btn btn-primary text-white font-weight-bold text-decoration-none w-100 p-2">Areas Comuns</button>
       <% end %>
       <%= link_to condominium_path(@condominium), title: "Portaria`" do %>
         <button class="d-flex btn btn-primary text-white font-weight-bold text-decoration-none w-100 p-2">Portaria</button>
