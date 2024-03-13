@@ -11,7 +11,6 @@ class ServicesController < ApplicationController
 
   def new
     @service = Service.new
-    @condominium = Condominium.find(params[:condominium_id])
   end
 
   def create
@@ -29,8 +28,11 @@ class ServicesController < ApplicationController
   end
 
   def update
+    @service = Service.find(params[:id])
+    user = @service.user
+    condominium = user.condominium
     if @service.update(service_params)
-      redirect_to condominium_services_path(@condominium), notice: 'Agendamento de serviço atualizado com sucesso'
+      redirect_to condominium_services_path(condominium), notice: 'Agendamento de serviço atualizado com sucesso'
     else
       render :edit, status: :unprocessable_entity
     end
