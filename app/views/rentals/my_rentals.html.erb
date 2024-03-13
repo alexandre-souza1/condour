@@ -4,25 +4,14 @@
 
   <Div class="d-flex justify-content-center align-items-center mb-4">
     <div class="card-orange"> <!--Aqui inicia a divisão laranja -->
-     <P>Reservas</P>
+     <P>Minhas reservas</P>
     </div>
-  </div>
-
-  <div class="row d-flex justify-content-between">
-  <div class="col-6">
-    <h2>Reservas realizadas:</h2>
-  </div>
-  <div class="col-4 d-flex justify-content-end">
-    <%= link_to "#", title: "Minhas Compras" do %>
-      <button class="btn btn-primary text-white">Adicionar Area</button>
-    <% end %>
-  </div>
   </div>
 
       <div class="row d-flex justify-content-between">
         <div class="col-12">
           <div class="cards-product">
-            <% @rental.each_with_index do |rental, index| %>
+            <% @rentals.each_with_index do |rental, index| %>
             <div class="card-product">
               <%= image_tag rental.place.photos.first %>
           <div class="card-product-infos col-9">

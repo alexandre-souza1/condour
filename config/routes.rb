@@ -34,6 +34,12 @@ Rails.application.routes.draw do
     resources :rentals, only: %i[new create index]
   end
 
+
+  resources :condominia do
+    get "my_rentals", to: "rentals#my_rentals"
+  end
+
+
   resources :rentals, except: %i[new create index]
 
   resources :residents, only: %i[index edit update]
