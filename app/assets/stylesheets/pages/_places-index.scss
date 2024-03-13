@@ -8,3 +8,22 @@
   background-color: #0C2D57;
   border-radius: 8px;
 }
+
+.card-trip {
+  position: relative;
+
+  .edit-icon,
+  .delete-icon {
+    display: none;
+    margin: 5px;
+    font-size: 20px;
+    transition: all 0.3s ease;
+  }
+
+  &:hover .edit-icon,
+  &:hover .delete-icon {
+    display: flex;
+    transition: all 0.3s ease;
+
+  }
+}
