@@ -20,11 +20,11 @@ Rails.application.routes.draw do
     resources :services, only: %i[new create index]
   end
 
+  resources :services, except: %i[new create index]
+
   resources :condominia do
     resources :rules, only: %i[index]
   end
-
-  resources :services, except: %i[new create index]
 
   resources :condominia do
     resources :places, only: %i[new create index]
