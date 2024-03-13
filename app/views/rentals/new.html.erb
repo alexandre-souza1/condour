@@ -1,7 +1,7 @@
 <div class="bg-sessions">
   <div class="container py-5">
     <div class="row">
-      <div class="col-12 col-md-6 offset-lg-3 mb-10">
+      <div class="col-12 col-md-6 offset-lg-3 mb-1">
         <div class="bg-white rounded p-3 shadow">
           <h3>Reserve <%= @place.name %>:</h3>
           <%= simple_form_for [@place, @rental] do |f| %>
@@ -13,6 +13,25 @@
             <%= f.input :price, label: "Valor de Reserva R$:", input_html: { value: @place.price, disabled: true } %>
             <%= f.button :submit, "Reservar Local", class: "btn btn-primary ml-auto text-white font-weight-bold" %>
           <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bg-sessions">
+  <div class="container py-20">
+    <div class="row">
+      <div class="col-12 col-md-6 offset-lg-3 mb-3">
+        <div class="bg-white rounded p-3 shadow">
+          <div class="card-description">
+            <div class="d-flex justify-content-between mb-3 border-bottom">
+              <% @place.photos.each do |photo| %>
+              <%= image_tag photo, height: 120, width: 180 %>
+              <% end %>
+            </div>
+            <h4>Descrição:</h4>
+            <p><%= @place.description %><p>
+          </div>
         </div>
       </div>
     </div>
