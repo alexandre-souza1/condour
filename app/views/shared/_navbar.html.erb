@@ -30,9 +30,20 @@
             <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-          </a>
+          <!-- Verifica se há uma foto anexada para o usuário atual -->
+            <% if current_user.photo.attached? %>
+            <!-- Se houver uma foto, cria um link para abrir o menu suspenso -->
+              <a href="#"  id="navbarDropdown" data-bs-toggle="dropdown">
+                 <!-- Mostra a foto do usuário como avatar -->
+                <%= image_tag current_user.photo, class: "avatar", alt: "User Avatar" %>
+              </a>
+            <% else %>
+              <!-- Se não houver foto, usa um avatar padrão -->
+              <a href="#"  id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 <!-- Mostra um avatar padrão -->
+                <%= image_tag "default_avatar.png", class: "avatar", alt: "Default Avatar" %>
+              </a>
+            <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
