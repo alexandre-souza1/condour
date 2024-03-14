@@ -14,7 +14,7 @@
       </div>
 
       <!--Botão para criar place -->
-    <% if current_user.syndic? %>
+    <% if current_user.admin %>
       <div class="col-4 d-flex justify-content-end">
         <%= link_to new_condominium_place_path, title: "Minhas Compras" do %>
           <button class="btn btn-primary text-white">Adicionar Área</button>
@@ -30,7 +30,7 @@
           <% @places.each do |place| %>
             <div class="card-trip place">
 
-              <% if current_user.syndic? %>
+              <% if current_user.admin %>
                 <div class="position-absolute top-0 end-0 mt-2 d-flex">
                   <%= link_to place_path(place),
                   title: "Clique aqui para excluir esta área",

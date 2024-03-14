@@ -34,5 +34,13 @@
       <%= link_to condominium_path(@condominium), title: "Apartamentos para alugar" do %>
         <button class="d-flex btn btn-primary text-white font-weight-bold text-decoration-none w-100 p-2">Alugueis</button>
       <% end %>
+      <%= form_with url: new_condominium_resident_path(@condominium), method: :get, class: "d-flex" do %>
+      <%= text_field_tag :cpf,
+            params[:cpf],
+            class: "form-control",
+            placeholder: "CPF"
+        %>
+      <%= submit_tag "Adicionar Condominio", name: "", class: "btn btn-primary" %>
+    <% end %>
     </div>
    </div>

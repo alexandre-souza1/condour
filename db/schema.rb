@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_14_001736) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_14_135307) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,6 +58,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_14_001736) do
     t.string "cnpj"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_condominia_on_user_id"
   end
 
   create_table "places", force: :cascade do |t|
@@ -91,6 +93,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_14_001736) do
     t.index ["user_id"], name: "index_rentals_on_user_id"
   end
 
+  create_table "residents", force: :cascade do |t|
+    t.string "residence_number"
+    t.string "block"
+    t.integer "role"
+    t.bigint "condominium_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["condominium_id"], name: "index_residents_on_condominium_id"
+    t.index ["user_id"], name: "index_residents_on_user_id"
+  end
+
   create_table "rules", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -117,12 +131,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_14_001736) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.integer "residence_number"
-    t.string "block"
-    t.bigint "condominium_id"
-    t.integer "role"
     t.string "cpf"
-    t.index ["condominium_id"], name: "index_users_on_condominium_id"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -131,11 +141,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_14_001736) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "condominia", "users"
   add_foreign_key "places", "condominia"
   add_foreign_key "posts", "condominia"
   add_foreign_key "posts", "users"
   add_foreign_key "rentals", "places"
   add_foreign_key "rentals", "users"
+  add_foreign_key "residents", "condominia"
+  add_foreign_key "residents", "users"
   add_foreign_key "services", "users"
-  add_foreign_key "users", "condominia"
 end

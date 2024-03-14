@@ -36,7 +36,7 @@
             <%= f.input :photo,
                         required: false,
                         input_html: { autocomplete: "photo" } %>
-            <%= f.input :role, as: :boolean, boolean_style: :inline, checked_value: 'syndic', unchecked_value: '',
+            <%= f.input :admin, as: :boolean, boolean_style: :inline, checked_value: 'syndic', unchecked_value: '',
                         required: true,
                         label: 'É sindico ou admistra um condomínio?' %>
           </div>

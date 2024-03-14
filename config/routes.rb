@@ -30,6 +30,10 @@ Rails.application.routes.draw do
     resources :places, only: %i[new create index]
   end
 
+  resources :condominia do
+    resources :residents
+  end
+
   resources :places, except: %i[new create index] do
     resources :rentals, only: %i[new create index]
   end
@@ -39,8 +43,6 @@ Rails.application.routes.draw do
   end
 
   resources :rentals, except: %i[new create index]
-
-  resources :residents, only: %i[index edit update]
 
   # Defines the root path route ("/")
   # root "posts#index"
