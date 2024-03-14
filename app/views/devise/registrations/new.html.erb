@@ -28,6 +28,11 @@
             <%= f.input :password_confirmation,
                         required: true,
                         input_html: { autocomplete: "new-password" } %>
+            <%= f.input :cpf,
+                        required: true,
+                        placeholder: "00000000000",
+                        label: 'CPF (apenas números)',
+                        input_html: { autocomplete: "CPF"} %>
             <%= f.input :photo,
                         required: false,
                         input_html: { autocomplete: "photo" } %>
