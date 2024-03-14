@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_condominium
+  before_action :set_condominium, only: [:new, :create, :index]
 
   def index
     @posts = Post.where(condominium_id: @condominium.id).order(created_at: :desc)
@@ -30,8 +30,10 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post = Post.find(params[:id])
+    condominium = @post.condominium
     if @post.update(post_params)
-      redirect_to condominium_path(@condominium), notice: 'Postagem atualizada com sucesso'
+      redirect_to condominium_posts_path(condominium), notice: 'Postagem atualizada com sucesso'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -39,13 +41,14 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    if @post.user == current_user || current_user.role.present?
+    if @post.user == current_user || current_user.admin?
       comments = Comment.where(post_id: @post.id)
       comments.destroy_all
-      @post.destroy
-      redirect_to condominium_path(@condominium), notice: "Postagem Excluída com sucesso."
-    else
-      redirect_to condominium_path(@condominium), alert: "Você não tem permissão para excluir esta postagem."
+      if @post.destroy
+        redirect_to new_condominium_post_path(@post), notice: "Postagem Excluída com sucesso."
+      else
+        redirect_to new_condominium_post_path(@post), alert: "Você não tem permissão para excluir esta postagem."
+      end
     end
   end
 
