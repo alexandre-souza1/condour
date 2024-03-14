@@ -23,8 +23,9 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
     @rental.place = @place
     @rental.user = current_user
+    @condominium = @place.condominium_id
     if @rental.save
-      redirect_to condominium_my_rentals_path(@place), notice: 'the rental order was successfully created.'
+      redirect_to condominium_my_rentals_path(@condominium), notice: 'the rental order was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
