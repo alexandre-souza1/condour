@@ -23,7 +23,9 @@ class CondominiaController < ApplicationController
 
   def create
     @condominium = Condominium.new(condominium_params)
+    @condominium.user_id = current_user.id
     if @condominium.save
+      Resident.create(user: current_user, condominium: @condominium, residence_number: 0, role: 0)
       redirect_to condominium_path(@condominium), notice: 'O condomínio foi criado com sucesso'
     else
       render :new, status: :unprocessable_entity
@@ -59,7 +61,7 @@ class CondominiaController < ApplicationController
   end
 
   def require_admin
-    unless current_user.syndic?
+    unless current_user.admin
       redirect_to root_path, alert: "Apenas administradores podem realizar esta ação."
     end
   end
