@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @posts = Post.where(condominium_id: @condominium.id).order(created_at: :desc)
   end
 
   def create
@@ -14,7 +15,10 @@ class PostsController < ApplicationController
     @post.user = current_user
     @post.condominium = @condominium
     if @post.save
-      redirect_to condominium_path(@condominium), notice: 'Postagem criada com sucesso!'
+      respond_to do |format|
+        format.html { redirect_to condominium_path(@condominium), notice: 'Postagem criada com sucesso!' }
+        format.text { render partial: "posts/card", locals: { post: @post }, formats: [:html] }
+      end
       # redirecionar para a home do condomínio, para a parte da página referente ao my posts/interações?
     else
       render :new, status: :unprocessable_entity
@@ -52,7 +56,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:content, photos: [])
+    params.require(:post).permit(:content)
   end
 
 end
