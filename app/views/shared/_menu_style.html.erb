@@ -9,11 +9,11 @@
      <h4>Bem-vindo ao,</h4>
      <h2 class=""><%= @condominium.name %>!</h2>
     </div>
-    <div class="card-btn p-3 d-flex flex-column justify-content-between mt-1"> <!--Aqui iniciam os botões laterais -->
+    <div class="card-btn p-3 d-flex flex-column justify-content-between mt-1 mb-1"> <!--Aqui iniciam os botões laterais -->
        <%= link_to condominium_path(@condominium), title: "Home" do %>
         <button class="d-flex btn btn-primary text-white font-weight-bold text-decoration-none w-100 p-2">Home</button>
       <% end %>
-       <%= link_to condominium_path(@condominium), title: "Comunidade" do %>
+       <%= link_to new_condominium_post_path(@condominium), title: "Comunidade" do %>
         <button class="d-flex btn btn-primary text-white font-weight-bold text-decoration-none w-100 p-2">Comunidade</button>
       <% end %>
       <%= link_to condominium_services_path(@condominium), title: "Agendamento de Manutenção" do %>
@@ -34,13 +34,22 @@
       <%= link_to condominium_path(@condominium), title: "Apartamentos para alugar" do %>
         <button class="d-flex btn btn-primary text-white font-weight-bold text-decoration-none w-100 p-2">Alugueis</button>
       <% end %>
-      <%= form_with url: new_condominium_resident_path(@condominium), method: :get, class: "d-flex" do %>
-      <%= text_field_tag :cpf,
-            params[:cpf],
-            class: "form-control",
-            placeholder: "CPF"
-        %>
-      <%= submit_tag "Adicionar Condominio", name: "", class: "btn btn-primary" %>
+      <% if current_user.admin %>
+      <div class="border-top">
+      </div>
+        <%= link_to condominium_residents_path(@condominium), title: "Moradores" do %>
+          <button class="d-flex btn btn-primary text-white font-weight-bold text-decoration-none w-100 p-2">Moradores</button>
+        <% end %>
+        <%= form_with url: new_condominium_resident_path(@condominium), method: :get, class: "search-form-control2 form-group" do %>
+          <%= text_field_tag :cpf,
+                params[:cpf],
+                class: "form-control",
+                placeholder: "Adicionar membro (CPF)"
+            %>
+          <%= button_tag(type: 'submit', class: 'btn btn-flat') do %>
+            <i class="fa-solid fa-plus"></i>
+          <% end %>
+        <% end %>
     <% end %>
     </div>
    </div>

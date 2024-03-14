@@ -1,1 +1,28 @@
-<%= @user %>
+<div class="bg-sessions">
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Adição de Morador</h3>
+
+          <div class="border-bottom mb-3 pb-4">
+            <form>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" value="<%= @user.first_name %> <%= @user.last_name %>" disabled="true">
+              </div>
+            </form>
+          </div>
+
+        <%= simple_form_for [@condominium, @resident] do |f| %>
+          <%= f.input :cpf, as: :hidden, input_html: { value: @cpf } %>
+          <%= f.input :role, collection: Resident.roles.keys.to_a %>
+          <%= f.input :block %>
+          <%= f.input :residence_number %>
+          <%= f.button :submit, 'Adicionar Morador' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
