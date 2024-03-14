@@ -1,3 +1,14 @@
-<div class="card-body">
-  <p class="card-text"><%= post.content %></p>
+<div class="card-post-blue d-flex">
+
+  <div class="photo">
+    <% if post.user.photo.attached? %>
+      <%= image_tag post.user.photo, class: "avatar d-flex", alt: "User Avatar" %>
+    <% else %>
+      <%= image_tag "default_avatar.png", class: "avatar d-flex", alt: "Default Avatar" %>
+    <% end %>
+  </div>
+
+  <div class="card-trip d-flex justify-content-start align-items-center">
+    <p class="card-text"><%= post.content %></p>
+  </div>
 </div>
