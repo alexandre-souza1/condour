@@ -22,6 +22,6 @@ class ResidentsController < ApplicationController
 
   def user_params
     #checar se esta vindo como resident ou como user
-    params.require(:resident).permit(:condominium_id, :role, :block, :residence_number)
+    params.require(:resident).permit(:condominium_id, :role, :block, :residence_number, :cpf)
   end
 end
