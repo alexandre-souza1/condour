@@ -24,6 +24,7 @@ class CondominiaController < ApplicationController
   def create
     @condominium = Condominium.new(condominium_params)
     if @condominium.save
+      @condominium.users << current_user
       redirect_to condominium_path(@condominium), notice: 'O condomínio foi criado com sucesso'
     else
       render :new, status: :unprocessable_entity
