@@ -1,0 +1,39 @@
+<%= render "shared/menu_style" %>
+
+<div class="container card-home-condos p-3">
+
+  <div class="d-flex justify-content-center align-items-center mb-4">
+    <div class="card-orange"> <!--Aqui inicia a divisão laranja -->
+     <p>Moradores</p>
+    </div>
+    </div>
+
+  <div class="row d-flex justify-content-between">
+  <div class="col-6">
+    <h2>Membros do Condominio:</h2>
+  </div>
+  <div class="col-12">
+  <div class="cards-trip">
+    <% @residents.each do |resident| %>
+        <div class="card-trip">
+        <% if resident.user.photo.present? %>
+          <img src="<%= resident.user.photo.url %>" />
+        <% else %>
+          <%= image_tag "default_avatar.png" %>
+        <% end %>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= resident.user.first_name %></h2>
+              <p><%= resident.role %></p>
+              <p><%= resident.residence_number %></p>
+              <p><%= resident.block %></p>
+
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+</div>
+</div>
+</div>

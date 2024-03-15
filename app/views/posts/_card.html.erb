@@ -1,0 +1,30 @@
+<div class="card-post-blue card-trip d-flex">
+
+
+  <div class="photo">
+    <% if post.user.photo.attached? %>
+      <%= image_tag post.user.photo, class: "avatar d-flex", alt: "User Avatar" %>
+    <% else %>
+      <%= image_tag "default_avatar.png", class: "avatar d-flex", alt: "Default Avatar" %>
+    <% end %>
+  </div>
+
+  <div class="card-trip d-flex justify-content-start align-items-center">
+    <p class="card-text"><%= post.content %></p>
+  </div>
+
+  <% if current_user.admin || post.user == current_user %>
+    <div class="position-absolute top-0 end-0 mt-2 d-flex">
+      <%= link_to post_path(post),
+      title: "Clique aqui para excluir este post",
+      data: {turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir?"} do %>
+        <i class="delete-icon fa-solid fa-trash"></i>
+      <% end %>
+
+      <%= link_to edit_post_path(post),
+        title: "Clique aqui para editar este post" do %>
+          <i class="edit-icon fa-solid fa-edit"></i>
+      <% end %>
+      </div>
+  <% end %>
+</div>

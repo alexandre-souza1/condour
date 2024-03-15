@@ -1,0 +1,19 @@
+<%= render "shared/menu_style" %>
+  <div class="container card-all-posts p-3">
+      <div class="row">
+        <div class="col-12">
+          <div data-controller="post" class="bg-white rounded p-3 shadow justify-content-center text-center">
+            <h3>Área Comunidade</h3>
+            <%= simple_form_for [@condominium, @post],
+            data: { action: "submit->post#createPost" } do |f|  %>
+              <%= f.input :content, as: :text, label: false, placeholder: "No que você está pensando?" %>
+              <%= f.button :submit, class: "btn btn-primary ml-auto text-white font-weight-bold" %>
+            <% end %>
+            <div data-post-target="list" class="mt-5">
+              <%= render partial: "card", collection: @posts, as: :post %>
+            </div>
+         </div>
+        </div>
+      </div>
+    </div>
+</div>

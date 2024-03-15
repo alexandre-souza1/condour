@@ -1,0 +1,22 @@
+.card-post-blue {
+  background-color: #0C2D57;
+  min-height: 100px;
+  height: auto;
+  padding: 12px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+
+  .card-trip {
+    width: 87%;
+    margin-left: 20px;
+    border-radius: 12px;
+    height: auto;
+    text-align: justify;
+    padding: 12px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+}
