@@ -1,23 +1,33 @@
 <%= render "shared/menu_style" %>
-  <div class="col-12 align-items: center card-trip">
-    <h3>Regras do Condomínio:</h3>
 
-
-  <div class="row d-flex justify-content-between">
-    <div class="col-12">
-      <div class="cards-trip">
-        <% @rules.each_with_index do |rule| %>
-        <%= rule.title %>
-        <% end %>
+  <div class="container card-rule-condos p-3">
+    <div class="d-flex justify-content-center align-items-center mb-4">
+      <div class="card-orange">
+      <p>Regras do Condomínio</p>
       </div>
     </div>
-  </div>
 
-  <% if current_user.admin %>
-    <div class="col-8 d-flex justify-content-end">
-      <%= link_to new_condominium_rule_path, title: "Minhas Regras" do %>
-      <button class="btn btn-primary text-white justify-content-end">Adicionar Regras</button>
+        <% if current_user.admin %>
+          <div class="col-12 d-flex justify-content-end">
+            <%= link_to new_condominium_rule_path, title: "Minhas Regras" do %>
+            <button class="btn btn-primary ml-auto text-white font-weight-bold"><i class="fa-solid fa-plus"></i> Adicionar Regras</button>
+            <% end %>
+          </div>
+        <% end %>
+
+        <% @rules.each_with_index do |rule| %>
+        <div class="card-regra mt-3">
+          <%= rule.title %>
+        </div>
+        <% if current_user.admin %>
+        <div class="col-12 d-flex justify-content-end">
+          <%= link_to condominium_rules_path(rule),
+          title: "Clique aqui para cancelar essa regra",
+          data: {turbo_method: :delete, turbo_confirm: "Tem certeza que deseja cancelar?"} do %>
+          <button class="btn btn-primary text-white font-bold me-4"><i class="fa-solid fa-trash"></i> Excluir regra </button>
+          <% end %>
+        </div>
       <% end %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
