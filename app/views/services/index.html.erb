@@ -16,26 +16,20 @@
     <div class="card-manutencao mt-3">
       <%= image_tag "manutencao.png", class: "imagem" %>
 
-      <div class="card-manutencao-infos">
+      <div class="card-manutencao-infos col-9">
         <h2><%= service.description %><i icon="teenyicons:edit-solid"></i></h2>
         <p><%= service.identification %> virá no dia <strong><%= service.date.strftime("%d/%m/%Y") %> às <%= service.time.hour %>:<%= service.time.min %>h!</strong></p>
 
       </div>
 
-      <div class="card-manutencao-links mt-3 d-flex flex-column align-items: center">
-          <%= link_to service_path(service),
-            title: "Clique aqui para excluir este agendamento",
-            data: {turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir?"} do %>
-            <i class="fa-solid fa-trash"></i>
-          <% end %>
-
-          <%= link_to edit_service_path(service),
-            title: "Clique aqui para editar este agendamento" do %>
-            <i class="fa-solid fa-edit"></i>
-          <% end %>
-        </div>
-
-    </div>
+      <div class="col-3">
+        <%= link_to service_path(service),
+          title: "Clique aqui para excluir este agendamento",
+          data: {turbo_method: :delete, turbo_confirm: "Tem certeza que deseja cancelar?"} do %>
+          <button class="btn btn-primary text-white font-bold me-4"><i class="fa-solid fa-trash"></i> Cancelar </button>
+        <% end %>
+      </div>
   <% end  %>
+</div>
 </div>
 </div>
