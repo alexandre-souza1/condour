@@ -35,6 +35,6 @@ class RulesController < ApplicationController
   end
 
   def rule_params
-    params.require(:rule).permit(:title, :file)
+    params.require(:rule).permit(:title, files: [])
   end
 end
