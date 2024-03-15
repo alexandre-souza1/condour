@@ -7,6 +7,7 @@
             <%= simple_form_for [@condominium, @post],
             data: { action: "submit->post#createPost" } do |f|  %>
               <%= f.input :content, as: :text, label: false, placeholder: "No que você está pensando?" %>
+              <%= f.input :photo, label: false %>
               <%= f.button :submit, class: "btn btn-primary ml-auto text-white font-weight-bold" %>
             <% end %>
             <div data-post-target="list" class="mt-5">

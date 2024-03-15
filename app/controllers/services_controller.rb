@@ -1,5 +1,6 @@
 class ServicesController < ApplicationController
   before_action :set_condominium, only: [:new, :create, :index]
+  before_action :set_resident, only: :update
 
   def index
     @services = Service.where(user_id: current_user).order(date: :asc)
@@ -29,10 +30,8 @@ class ServicesController < ApplicationController
 
   def update
     @service = Service.find(params[:id])
-    user = @service.user
-    condominium = user.condominium
     if @service.update(service_params)
-      redirect_to condominium_services_path(condominium), notice: 'Agendamento de serviço atualizado com sucesso'
+      redirect_to condominium_services_path(@resident.condominium), notice: 'Agendamento de serviço atualizado com sucesso'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -48,6 +47,11 @@ class ServicesController < ApplicationController
   end
 
   private
+
+  def set_resident
+    raise
+    @resident = Resident.where(user_id: current_user.id, condominium_id: params[:condominium_id])
+  end
 
   def set_condominium
     @condominium = Condominium.find(params[:condominium_id])
