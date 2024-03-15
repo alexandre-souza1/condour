@@ -1,13 +1,15 @@
 class CommentsController < ApplicationController
   before_action :set_post
 
-  # def index
-  #   @comment = Comment.where(post_id: @post.id)
-  # end
+  #def index
+  #  @comments = Comment.where(post_id: @post.id)
+  #  @comment = Comment.new
+  #end
 
-  # def new
-  #   @comment = Comment.new
-  # end
+  def new
+    @comments = Comment.where(post_id: @post.id)
+    @comment = Comment.new
+  end
 
   def create
     @comment = Comment.new(comment_params)
@@ -45,7 +47,7 @@ class CommentsController < ApplicationController
   private
 
   def set_post
-    @post = post.find(params[:post_id])
+    @post = Post.find(params[:post_id])
   end
 
   def comment_params
