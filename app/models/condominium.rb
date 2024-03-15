@@ -5,6 +5,7 @@ class Condominium < ApplicationRecord
   has_many :posts
   has_many :services
   has_many :places
+  has_many :rules
   belongs_to :user
 
   include PgSearch::Model

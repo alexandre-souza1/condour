@@ -1,171 +1,33 @@
 <%= render "shared/menu_style", condominium: @condominium %>
 
-<div class="container card-home-condos p-3">
-
-  <Div class="d-flex justify-content-center align-items-center mb-4">
-    <div class="card-orange"> <!--Aqui inicia a divisão laranja -->
-     <P>Regras</P>
+  <div class="container card-rule-condos p-3">
+    <div class="d-flex justify-content-center align-items-center mb-4">
+      <div class="card-orange">
+      <p>Regras do Condomínio</p>
+      </div>
     </div>
+
+        <% if current_user.admin %>
+          <div class="col-12 d-flex justify-content-end">
+            <%= link_to new_condominium_rule_path, title: "Minhas Regras" do %>
+            <button class="btn btn-primary ml-auto text-white font-weight-bold"><i class="fa-solid fa-plus"></i> Adicionar Regras</button>
+            <% end %>
+          </div>
+        <% end %>
+
+        <% @rules.each_with_index do |rule| %>
+        <div class="card-regra mt-3">
+          <%= rule.title %>
+        </div>
+        <% if current_user.admin %>
+        <div class="col-12 d-flex justify-content-end">
+          <%= link_to condominium_rules_path(rule),
+          title: "Clique aqui para cancelar essa regra",
+          data: {turbo_method: :delete, turbo_confirm: "Tem certeza que deseja cancelar?"} do %>
+          <button class="btn btn-primary text-white font-bold me-4"><i class="fa-solid fa-trash"></i> Excluir regra </button>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
-
-<div class="rules">
-
-<h1 class="text-center">Regras do condomínio!</h1>
-<h2>Como fazer a sua obra ou reforma?</h2>
-<p>Como todo condomínio, nós temos as nossas regras:</p>
-<ol>
-  <li>Agregar valor à construção.</li>
-  <li>Eliminar o que não acrescenta.</li>
-  <li>Otimizar tempo.</li>
-  <li>Reduzir a variabilidade.</li>
-  <li>Tornar processos transparentes.</li>
-</ol>
-
-<p>Você está em um prédio. Em síntese, a Norma Brasileira 16.280 determina que todas as obras realizadas dentro do condomínio passem pelo aval do síndico e, em alguns casos, de um engenheiro ou arquiteto.</p>
-
-<p>Para isso, os condôminos devem entregar ao síndico uma série de documentos antes de iniciar as obras. Primeiramente, de acordo com a NBR 16.280, o condômino que pretende realizar uma reforma deve apresentar um desses dois documentos:</p>
-<ul>
-  <li>ART (Anotação de Responsabilidade Técnica), quando o profissional responsável é engenheiro;</li>
-  <li>RRT (Registro de Responsabilidade Técnica), quando o profissional responsável é arquiteto.</li>
-</ul>
-
-<p>Além disso, é preciso anexar um cronograma detalhado com:</p>
-<ul>
-  <li>Descrição do que será feito na obra;</li>
-  <li>Tempo estimado para a realização da obra;</li>
-  <li>Planta com as alterações a serem feitas;</li>
-  <li>Lista com nome e identificação (RG e CPF) dos prestadores de serviço envolvidos para facilitar a entrada deles no prédio.</li>
-</ul>
-
-<p>E quais obras precisam de ART/RRT?</p>
-<p>Obras que necessitam ART/RRT:</p>
-<ul>
-  <li>Instalação de ar-condicionado;</li>
-  <li>Mudança de lugar de torneiras, chuveiro ou tomadas;</li>
-  <li>Abertura de porta ou cozinha americana;</li>
-  <li>Fechamento ou envidraçamento de sacadas;</li>
-  <li>Buracos ou perfurações de lajes;</li>
-  <li>Instalação de banheira;</li>
-  <li>Reforma, reparos ou alterações na rede elétrica dentro da sua unidade e fora, onde precisa de engenheiro eletricista;</li>
-  <li>Reparo ou alteração nas instalações de gás;</li>
-  <li>Troca de revestimentos com uso de ferramentas de alto impacto, como marretas ou marteletes, para retirada do revestimento prévio;</li>
-  <li>Alterações estruturais no apartamento.</li>
-</ul>
-
-<p>Obras que não necessitam de ART/RRT, mas o proprietário do apartamento precisa preencher um termo de responsabilidade com a descrição da obra:</p>
-<ul>
-  <li>Pintura;</li>
-  <li>Pequenos reparos elétricos e hidráulicos que não utilizem ferramentas de alto impacto, não façam alterações na estrutura do condomínio e nem envolvam trocar torneiras, chuveiros ou tomadas de lugar;</li>
-  <li>Colocação de redes de proteção;</li>
-  <li>Substituição do forro de gesso, desde que o novo tenha características semelhantes ao original.</li>
-</ul>
-
-<p>E lembre-se que toda obra é bem-vinda, mas obra que prejudica a saúde, segurança e salubridade do edifício e seus moradores não é bem-vinda e será solicitado que pare. Portanto, respeito é fundamental.</p>
-
-<p>Aqui no nosso condomínio, respeito é fundamental, então vão as regras:</p>
-<ul>
-  <li>Antes de iniciar, entregue os documentos. Caso não encontre o zelador ou a síndica, o e-mail é <a href="mailto:saosebastiaob@gmail.com">saosebastiaob@gmail.com</a>.</li>
-  <li>O horário de obra é de segunda-feira a sexta-feira das 08:00 às 18:00. Pedimos que não seja usado o martelo antes das 09:00.</li>
-  <li>Coloque pano embaixo da sua porta.</li>
-  <li>Limpe o corredor todo final do dia. Não é legal deixar sujo para os funcionários do condomínio limparem.</li>
-  <li>Não deixe nada no corredor.</li>
-  <li>Não desça entulho antes de agendar a caçamba.</li>
-  <li>Não suje e deixe sujo o elevador de serviço.</li>
-  <li>Não coloque peso demais no elevador de serviço.</li>
-  <li>Não coloque objetos grandes demais no elevador de forma que batam no teto.</li>
-  <li>Não coloque lixo ou entulho de obra na lixeira. Muito menos no compactador.</li>
-  <li>Não deixe registros abertos.</li>
-  <li>Não desperdice água.</li>
-  <li>Não quebre nada dentro da sua unidade antes de perguntar ao síndico, zelador ou manutenção predial.</li>
-  <li>Não troque as janelas da frente.</li>
-  <li>Não toque no cano de gás, nem nos canos dos ramais do condomínio (água pluvial, esgoto, gordura, ventilação).</li>
-  <li>Deixe uma planta nas buill na administração. Você pode precisar no futuro.</li>
-  <li>Qualquer dúvida, pergunte ao zelador ou síndica. Faxineiro e porteiro não representam nada no prédio.</li>
-<p></p>
-<hr>
-<p></p>
-<h2>Terraço Jardim</h2>
-<p>Morar num condomínio com terraço compartilhado entre todos é muito legal. No entanto, para viver em coletividade, existem regras a serem cumpridas. Então, se você gostaria de dar uma festa com os amigos, levar seu filho para brincar, tomar sol ou instalar uma antena, é importante saber o que pode e o que não pode ser feito num terraço compartilhado. Seguindo a AGE de 06.05.21 do bl.b, segue um resumo das regras:</p>
-
-<ul>
-  <li>A utilização é gratuita, todavia é proibido fazer picnic.</li>
-  <li>Ficou determinado que a utilização do terraço será livre para moradores. Visitantes serão autorizados até 3 pessoas externas, por evento.</li>
-  <li>A realização de uma festa com amigos no terraço é expressamente proibida pelo regulamento do condomínio. A nossa convenção determina que apenas o salão de festas e churrasqueira poderão ser utilizados para tal fim. Após isso, será solicitado que o evento seja interrompido, vetada a utilização, e os apartamentos poderão ser multados.</li>
-  <li>Fica proibido também:</li>
-  <ul>
-    <li>Caso esteja chovendo ou ventando, é inviável a sua utilização.</li>
-    <li>Não é permitido o uso de cigarro, maconha, cachimbo, incenso, ou seja, qualquer tipo de tabaco sobre a grama (risco de incêndio) e em ambiente fechado. Proibido fumar.</li>
-    <li>Não pode ser usada churrasqueira, nem nenhum fogão à gás ou lenha.</li>
-    <li>Proibido deixar lixo no local ou danificar o espaço.</li>
-    <li>Fica proibido o uso de equipamentos de som e luz.</li>
-    <li>Não pode ser usado para fins políticos, sublocação, etc.</li>
-    <li>Proibido colocar mesas e cadeiras extras.</li>
-    <li>Proibido soltar ou portar animais soltos (cachorros 🐕 e gatos 🐱) na área.</li>
-    <li>Proibido andar em pé na mesa, banheira, e bancos.</li>
-    <li>Proibido se debruçar no peitoril.</li>
-    <li>Proibido plantar, colher mudas, jogar lixo nas plantas, arrancar folhas.</li>
-    <li>Proibido usar a banheira para fins além de se refrescar.</li>
-    <li>Não jogar nenhum tipo de objeto pela sacada.</li>
-    <li>Não será permitido pular, gritar, acender fogos, apitos, jogar objetos pesados no chão, ou quaisquer outros atos que venham a incomodar os vizinhos dos apartamentos no próprio andar ou inferiores. No caso de descumprimento, será solicitada a retirada imediata do morador, que poderá ser advertido e multado em 1 salário mínimo.</li>
-    <li>Não mergulhe na banheira antes de se molhar no chuveiro.</li>
-    <li>O horário de uso para tomar sol é após às 16h e deve ser previamente agendado. E seu uso é apenas para moradores do condomínio.</li>
-    <li>O horário de uso do bar é até as 23h.</li>
-  </ul>
-</ul>
-<p></p>
-<hr>
-<p></p>
-<h2>Campo de Futebol & Área Verde</h2>
-<p>Neste novo normal, para você que quer usar estes espaços, por se tratar de uma área de uso comum às duas administrações (Bloco A e Bloco B) e seguindo a AGE de 06.05.21 do Bloco B, segue um resumo das regras:</p>
-
-<ul>
-  <li>A utilização é gratuita.</li>
-  <li>Ficou determinado que a utilização do campo de futebol e área verde será livre para até 3 pessoas externas, por evento, sem necessidade de reserva, apenas apresentar o certificado de vacinação na entrada do condomínio (pessoas externas).</li>
-  <li>Ficou decidido também que "caso o morador deseje chamar eventualmente alguns amigos a mais será necessário a comunicação prévia e autorização dos síndicos dos blocos. Estes decidiram que em respeito à resolução da prefeitura de Niterói e AGE de 06.03.21, o uso das partes comuns (não essenciais) e realização de eventos dentro do nosso condomínio será necessário apresentar o esquema vacinal completo contra Covid de todos os participantes. Sendo assim, solicitamos que seja encaminhado o "passe livre" (certificado de vacinação/conectesus) de covid seu e de todos os seus convidados para realizar a pré-reserva. Além de seguir a convenção que nos determina como relatores dos usos dos espaços comuns, temos acordado que é possível apenas até 3 pessoas externas no futebol e 8 pessoas nos pic-nics, por evento. Após isso, será vetada a utilização e os apartamentos poderão ser multados.</li>
-  <li>Caso esteja chovendo ou ventando, é inviável a sua utilização.</li>
-  <li>Não pode o uso de fritadeira a gás, nem a carvão.</li>
-  <li>Não pode ser usado churrasqueira, nem nenhum fogão à gás lenha.</li>
-  <li>Proibido deixar lixo no local ou danificar o espaço.</li>
-  <li>Fica proibido o uso de equipamento de som e luz.</li>
-  <li>Não pode ser usado para fins políticos, sublocação, etc.</li>
-  <li>Colocar mesas e cadeiras extras.</li>
-  <li>Proibido soltar/ portar animais soltos (cachorros 🐕 e gatos 🐱).</li>
-  <li>Proibido andar em pé nos balanços e bancos.</li>
-  <li>Não alimente nem perturbe os peixes.</li>
-  <li>Não mergulhe no lago.</li>
-  <li>O horário de uso é das 08h às 19h. Deverá arrumar e desarrumar durante este tempo.</li>
-  <li>Como não queremos problemas com os demais vizinhos, não se atrase e respeite o horário. Deve ser devolvida limpa até o horário estipulado. Determinou-se em assembleia que caso passe o horário limite de entrega e as câmeras do sistema de segurança constatem que não foi, será cobrado 1 salário mínimo somado à taxa já paga, na próxima boleta condominial (sem necessidade de aviso prévio).</li>
-</ul>
-
-<p>Caso seja necessário, venha pessoalmente fazer a reserva até 48 horas antes da data de início do seu evento à administração com todos os documentos.</p>
-
-<p>Respeite os animaizinhos e plantas que lá moram.</p>
-
-<p>E boa utilização ⚽❤️</p>
-<p></p>
-<hr>
-<p></p>
-<h2>Churrasqueira</h2>
-    <p>Para você que deseja usar/locar a churrasqueira, segue um resumo das regras:</p>
-    <p>Baseado na resolução da prefeitura de Niterói e AGE de 06.03.21 para o uso das partes comuns (não essenciais) e realização de eventos dentro do nosso condomínio, será necessário efetuar uma pré-reserva que só será completa quando a taxa de utilização de R$120,00 for quitada junto à administração.</p>
-    <p>Nessa taxa está incluído o uso de:</p>
-    <ul>
-        <li>1 freezer e geleiro.</li>
-        <li>2 mesas grandes com cadeiras de metal.</li>
-        <li>5 conjuntos de 4 cadeiras.</li>
-        <li>Som próprio da churrasqueira.</li>
-        <li>Kit churrasco (espetos).</li>
-    </ul>
-    <p>O horário de uso é de segunda a sábado das 12h às 20h. A churrasqueira não é alugada aos domingos e feriados.</p>
-    <p>Não é permitido o uso para fins políticos, sublocação, etc. Também não é permitido colocar mesas e cadeiras extras nem utilizar caixa de som além da existente.</p>
-    <p>É entregue limpa e deve ser devolvida, pelo menos, com o lixo recolhido até o horário limite.</p>
-    <p>Como não queremos problemas com os demais vizinhos, pedimos que não se atrase e respeite o horário de devolução. Em assembleia, foi determinado que caso ultrapasse o horário limite de entrega e as câmeras do sistema de segurança constatem que não foi cumprido, será cobrado 1 salário mínimo somado à taxa já paga na próxima boleta condominial (sem necessidade de aviso prévio).</p>
-    <p>A capacidade de uso é de 25 pessoas.</p>
-    <p>Caso deseje, você pode vir pessoalmente fazer a reserva até 48 horas antes da data de início do seu evento na administração, trazendo todos os documentos necessários.</p>
-    <p>E boa festa!</p>
-</ul>
 </div>
-</div>
-</div>
-</body>
-</html>
