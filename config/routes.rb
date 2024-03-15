@@ -42,6 +42,12 @@ Rails.application.routes.draw do
     get "my_rentals", to: "rentals#my_rentals"
   end
 
+  resources :condominia do
+    get "apartments", to: "places#apartments"
+    get "apartments/new", to: "places#apartments_new" # Adicionando um membro para 'new'
+    post "apartments", to: "places#apartments_create" # Utilizando a mesma rota 'apartments' para criar
+  end
+
   resources :rentals, except: %i[new create index]
 
   # Defines the root path route ("/")

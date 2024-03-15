@@ -1,12 +1,35 @@
 class PlacesController < ApplicationController
-  before_action :set_condominium, only: [:new, :create, :index]
+  before_action :set_condominium, only: [:new, :create, :index, :apartments]
 
   def index
-    @places = Place.where(condominium_id: @condominium.id).order(created_at: :desc)
+    @condominium = Condominium.find(params[:condominium_id])
+    @places = @condominium.places.where(apartment: false).order(created_at: :desc)
   end
 
   def show
     @place = Place.find(params[:id])
+  end
+
+  def apartments
+    @condominium = Condominium.find(params[:condominium_id])
+    @places = @condominium.places.where(apartment: true).order(created_at: :desc)
+  end
+
+  def apartments_new
+    @condominium = Condominium.find(params[:condominium_id])
+    @place = @condominium.places.new(apartment: true)
+  end
+
+  def apartments_create
+    @condominium = Condominium.find(params[:condominium_id])
+    @place = @condominium.places.new(place_params)
+    @place.apartment = true # Define o valor de 'apartment' como verdadeiro
+
+    if @place.save
+      redirect_to condominium_apartments_path(@condominium), notice: 'Apartamento criado com sucesso'
+    else
+      render :apartments_new, status: :unprocessable_entity
+    end
   end
 
   def new
@@ -53,6 +76,6 @@ class PlacesController < ApplicationController
   end
 
   def place_params
-    params.require(:place).permit(:name, :price, :description, photos: [])
+    params.require(:place).permit(:name, :price, :description, :apartment, :residence_number, :block, photos: [])
   end
 end

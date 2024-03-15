@@ -4,19 +4,19 @@
 
   <div class="d-flex justify-content-center align-items-center mb-4">
     <div class="card-orange"> <!--Aqui inicia a divisão laranja -->
-     <p>Áreas Comuns</p>
+     <p>Apartamentos</p>
     </div>
     </div>
 
     <div class="row d-flex justify-content-between">
       <div class="col-6">
-        <h2>Áreas Disponíveis:</h2>
+        <h2>Apartamentos Disponíveis:</h2>
       </div>
 
       <!--Botão para criar place -->
     <% if current_user.admin %>
       <div class="col-4 d-flex justify-content-end">
-        <%= link_to new_condominium_place_path, title: "Minhas Compras" do %>
+        <%= link_to condominium_apartments_new_path(@condominium), title: "Minhas Compras" do %>
           <button class="btn btn-primary text-white">Adicionar Área</button>
         <% end %>
       </div>
@@ -48,9 +48,9 @@
               <img src="<%= place.photos.first.url %>" />
 
               <div class="card-trip-infos">
-                <%= link_to new_place_rental_path(place), class: "text-decoration-none" do %>
+                <%= link_to place_path(place), class: "text-decoration-none" do %>
                   <div>
-                    <h2><%= place.name %></h2>
+                    <h2><%= place.residence_number %> bloco: <%= place.block %></h2>
                     <p><%= truncate(place.description, length: 35, omission: '...') %></p>
                   </div>
                 <% end %>

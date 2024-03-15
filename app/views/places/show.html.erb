@@ -1,1 +1,57 @@
-<h1>teste <%= @place.name %></h1>
+<%= render "shared/menu_style", condominium: @place.condominium %>
+
+  <div class="container card-home-condos p-3">
+
+    <div class="d-flex justify-content-center align-items-center mb-4">
+      <div class="card-orange"> <!--Aqui inicia a divisão laranja -->
+        <p>Apartamentos</p>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-between">
+      <div class="col-6">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="<%= @place.photos.first.url %>" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="<%= @place.photos.first.url %>" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="<%= @place.photos.first.url %>" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+             <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+      </div>
+
+      <div class="col-6 border-start">
+        <h2 class="">Apartamento <%= @place.residence_number %> Bloco: <%= @place.block %></h2>
+        <% if @place.rent_price %>
+        <h4>Valor Aluguel <%= @place.rent_price %></h4>
+        <% end %>
+        <% if @place.sale_price %>
+        <h4>Valor Venda <%= @place.sale_price %></h4>
+        <% end %>
+        <h4 class="text-primary">Contato <i class="fa-solid fa-phone"></i> <%= @place.contact %></h4>
+      </div>
+    <div class="row mt-4 border-top pt-4">
+      <div class="col-12">
+        <h4>Descrição:</h4>
+        <p><%= @place.description %></p>
+      </div>
+    </div>
+
+
+
+    </div>
+  </div>
+</div>

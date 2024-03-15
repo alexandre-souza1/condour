@@ -97,7 +97,8 @@
 /* Estilos para o carrossel em telas menores */
 .carousel-item img {
   max-width: 100%; /* Imagens dentro do carrossel ocupam toda a largura */
-  height: 300px; /* Altura ajustada automaticamente para manter a proporção */
+  height: 300px;
+  border-radius: 8px; /* Altura ajustada automaticamente para manter a proporção */
 }
 
 /* Estilos para os indicadores do carrossel */
@@ -123,7 +124,7 @@
 .carousel-control-next {
   width: 40px; /* Largura dos controles */
   height: 40px; /* Altura dos controles */
-  background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo dos controles */
+  background-color: rgba(0, 0, 0, 0.9); /* Cor de fundo dos controles */
   border-radius: 50%; /* Formato circular */
   border: none; /* Remove a borda */
   top: 50%; /* Posiciona os controles verticalmente no centro */
@@ -133,14 +134,6 @@
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   color: #fff; /* Cor dos ícones dos controles */
-}
-
-.carousel-control-prev {
-  left: -30px; /* Posiciona o controle 'Previous' para a esquerda */
-}
-
-.carousel-control-next {
-  right: -30px; /* Posiciona o controle 'Next' para a direita */
 }
 
 
