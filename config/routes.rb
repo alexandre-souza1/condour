@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   resources :services, except: %i[new create index]
 
   resources :condominia do
-    resources :rules, only: %i[index]
+    resources :rules, only: %i[new create edit update index]
   end
 
   resources :condominia do
