@@ -1,0 +1,20 @@
+<div class="bg-sessions">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12 col-md-6 offset-lg-3 mb-10">
+        <div class="bg-white rounded p-3 shadow">
+          <h3>Criação de Apartamentos:</h3>
+          <%= simple_form_for [@condominium, @place], url: condominium_apartments_path(@condominium) do |f| %>
+            <%= f.input :residence_number, label: "Numero do Apto" %>
+            <%= f.input :block, label: "bloco" %>
+            <%= f.input :rent_price, label: "Valor para aluguel", placeholder: "R$", hint: "Caso queira somente vender, deixe em branco" %>
+            <%= f.input :sale_price, label: "Valor para venda", placeholder: "R$", hint: "Caso queira somente aluguel, deixe em branco" %>
+            <%= f.input :description, label: "Descrição" %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Adicionar imagens" %>
+            <%= f.button :submit, "Registrar Local", class: "btn btn-primary ml-auto text-white font-weight-bold" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

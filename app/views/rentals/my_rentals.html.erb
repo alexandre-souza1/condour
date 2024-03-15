@@ -1,4 +1,4 @@
-<%= render "shared/menu_style" %>
+<%= render "shared/menu_style", condominium: @condominium %>
 
 <div class="container card-home-condos p-3">
 
@@ -18,7 +18,7 @@
             <h2><%= rental.place.name %></h2>
             <p>Data: <%= rental.date.strftime("%d/%m/%Y") %></p>
             <p>Horário da reserva: <%= rental.time.strftime("%H:%M") %></p>
-            <p>Valor de Reserva: R$ <%= rental.place.price %></p>
+            <p>Valor de Reserva: R$ <%= rental.place.rent_price %></p>
           </div>
 
         <div class="col-3">
