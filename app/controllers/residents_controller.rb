@@ -39,6 +39,12 @@ class ResidentsController < ApplicationController
     end
   end
 
+  def destroy
+    @resident = Resident.find(params[:id])
+    @resident.destroy
+    redirect_to condominium_residents_path(@condominium), notice: 'Residente excluído com sucesso!'
+  end
+
   private
 
   def set_condominium
