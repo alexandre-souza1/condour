@@ -9,7 +9,40 @@
   </div>
   <footer id="sticky-footer" class="flex-shrink-0 py-4 text-white-50">
     <div class="container text-center">
-      <small>Copyright &copy; Condour</small>
+                <div class="row gy-4 gx-5">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="h1 text-white">CONDOUR</h5>
+                    <p class="small text-white">A sua rede social de condomínios.</p>
+                    <p class="small text-white mb-0">&copy; Copyrights. All rights reserved.</p>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-3">Acesso Rapido</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li><a href="/">Home</a></li>
+                        <li><%= link_to "Entre na sua conta", new_user_session_path %></li>
+                        <li><a href="#">Sobre</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-3">Redes Sociais</h5>
+                    <div class="d-flex align-items-center">
+                      <button class="button-social text-white bg-transparent border-0"><i class="fa-brands fa-square-facebook"></i></button>
+                      <button class="button-social text-white bg-transparent border-0"><i class="fa-brands fa-square-instagram"></i></button>
+                      <button class="button-social text-white bg-transparent border-0"><i class="fa-brands fa-square-x-twitter"></i></button>
+                      <button class="button-social text-white bg-transparent border-0"><i class="fa-brands fa-square-pinterest"></i></button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 d-none">
+                    <h5 class="text-white mb-3">Newsletter</h5>
+                    <p class="small text-white">Se inscreva para saber de todas as novidades!</p>
+                    <form action="#">
+                        <div class="input-group mb-3">
+                            <input class="form-control" type="text" placeholder="Email" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <button class="btn btn-primary" id="button-addon2" type="button"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
     </div>
   </footer>
 </body>

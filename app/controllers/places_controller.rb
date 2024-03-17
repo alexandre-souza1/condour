@@ -1,5 +1,6 @@
 class PlacesController < ApplicationController
   before_action :set_condominium, only: [:new, :create, :index, :apartments]
+  before_action :authenticate_user!, except: [:apartments, :show]
 
   def index
     @condominium = Condominium.find(params[:condominium_id])

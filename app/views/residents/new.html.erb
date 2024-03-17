@@ -8,18 +8,18 @@
           <div class="border-bottom mb-3 pb-4">
             <form>
               <div class="form-group">
-                <label for="name">Name</label>
+                <label for="name">Nome</label>
                 <input type="text" class="form-control" value="<%= @user.first_name %> <%= @user.last_name %>" disabled="true">
               </div>
             </form>
           </div>
 
         <%= simple_form_for [@condominium, @resident] do |f| %>
-          <%= f.input :cpf, as: :hidden, input_html: { value: @cpf } %>
-          <%= f.input :role, collection: Resident.roles.keys.to_a %>
-          <%= f.input :block %>
-          <%= f.input :residence_number %>
-          <%= f.button :submit, 'Adicionar Morador' %>
+          <%= f.input :cpf, label: "CPF", as: :hidden, input_html: { value: @cpf } %>
+          <%= f.input :role, label: "Tipo de Usuário", collection: Resident.roles.keys.to_a %>
+          <%= f.input :block, label: "Bloco" %>
+          <%= f.input :residence_number, label: "Numero do Apto" %>
+          <%= f.button :submit, label: 'Adicionar Morador' %>
         <% end %>
       </div>
     </div>
