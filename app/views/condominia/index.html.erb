@@ -1,34 +1,75 @@
 <div class="container card-home-condos p-3">
+
+  <section id="condominia" class="row mb-3 d-flex justify-content-between">
+    <div class="col-6">
+      <h2>CondOur - Condomínios Associados:</h2>
+    </div>
+
+    <div class="col-4 d-flex justify-content-end">
+      <%= link_to condominia_path, title: "Minhas Compras" do %>
+        <button class="btn btn-primary text-white">Redefinir busca</button>
+      <% end %>
+    </div>
+
+  </section>
+
   <div class="row d-flex justify-content-between">
-  <div class="col-6">
-    <h2>Alguns de nossos condomínios:</h2>
-  </div>
-  <div class="col-4 d-flex justify-content-end">
-    <%= link_to condominia_path, title: "Minhas Compras" do %>
-      <button class="btn btn-primary text-white">Redefinir busca</button>
-    <% end %>
-  </div>
-  </div>
-  <div class="row d-flex justify-content-between">
-  <div class="col-4">
-  <h5>Filtros de busca:</h5>
-  </div>
-  <div class="col-8">
-  <div class="cards-trip">
-    <% @condominia.each do |condominium| %>
-        <div class="card-trip">
-          <img src="<%= condominium.photos.first.url %>" />
-          <div class="card-trip-infos">
-          <%= link_to condominium_path(condominium), class: "text-decoration-none" do %>
-            <div>
-              <h2><%= condominium.name %></h2>
-              <p><%= truncate(condominium.address, length: 35, omission: '...') %></p>
+    <div class="col-8">
+      <div class="cards-trip">
+        <% @condominia.each do |condominium| %>
+
+          <div class="card-trip">
+            <img src="<%= condominium.photos.first.url %>" />
+
+            <div class="card-trip-infos">
+              <%= link_to condominium_path(condominium), class: "text-decoration-none" do %>
+                <div>
+                  <h2><%= condominium.name %></h2>
+                  <p><%= truncate(condominium.address, length: 35, omission: '...') %></p>
+                </div>
+              <% end %>
             </div>
-          <% end %>
           </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Procura se a pessoa é residente, o ideal seria ter um resident = true / false no user-->
+  <% is_resident = Resident.exists?(user_id: current_user.id) %>
+  <% if is_resident %>
+    <section id="my-condominia" data-scroll-to-section-target="mycondominia" class="row my-3 d-flex justify-content-between">
+      <div class="col-12">
+        <h2>Meus Condomínios - Residências e Administração:</h2>
+      </div>
+
+    </section>
+
+    <div class="row d-flex justify-content-between">
+      <div class="col-8">
+        <div class="cards-trip">
+        <% condominia = Condominium.joins(:residents).where(residents: { user_id: current_user.id })  %>
+          <% condominia.each do |condominium| %>
+
+            <div class="card-trip">
+              <img src="<%= condominium.photos.first.url %>" />
+
+              <div class="card-trip-infos">
+                <%= link_to condominium_path(condominium), class: "text-decoration-none" do %>
+                  <div>
+                    <h2><%= condominium.name %></h2>
+                    <p><%= truncate(condominium.address, length: 35, omission: '...') %></p>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+
+          <% end %>
         </div>
-    <% end %>
-  </div>
+      </div>
+    </div>
+
+  <% end %>
+
 </div>
-</div>
-  </div>

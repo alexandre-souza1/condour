@@ -1,4 +1,4 @@
-<div class="card-post-blue card-trip d-flex">
+<div class="card-post-blue card-post d-flex">
   <div class="row w-100">
     <div  class="col">
 
@@ -26,7 +26,7 @@
         </div>
       </div>
       <!-- Conteúdo do post-->
-      <div class="card-trip d-flex justify-content-start align-items-center w-100">
+      <div class="card-post d-flex justify-content-start align-items-center w-100">
         <p class="card-text"><%= post.content%></p>
       </div>
 
@@ -35,7 +35,7 @@
 
       <!-- botões de deleção e edição do post-->
       <% if current_user.admin || post.user == current_user %>
-        <div class="position-absolute top-0 end-0 mt-2 d-flex">
+        <div class="position-absolute top-0 end-0 mt-3 mx-3 d-flex">
           <%= link_to post_path(post),
           title: "Clique aqui para excluir este post",
           data: {turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir?"} do %>

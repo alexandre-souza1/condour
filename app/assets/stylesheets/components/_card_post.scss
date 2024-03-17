@@ -5,8 +5,10 @@
   padding: 12px;
   margin-bottom: 30px;
   border-radius: 4px;
+  transition: transform 0.3s ease;
 
-  .card-trip {
+  .card-post {
+    background-color: white;
     width: 87%;
     margin-left: 20px;
     border-radius: 12px;
@@ -17,6 +19,15 @@
 
   p {
     font-size: 16px;
+  }
+
+  i {
+    font-size: 16px;
+  }
+
+  &:hover {
+    position: relative;
+    transition: transform 0.3s ease;
   }
 
 }

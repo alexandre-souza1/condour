@@ -23,9 +23,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
+          <% is_resident = Resident.exists?(user_id: current_user.id) %>
+          <% if is_resident %>
+            <li class="nav-item active">
+              <%= link_to "Meus Condomínios", "#{condominia_path}#my-condominia", class: "nav-link", data: { controller: "scroll-to-section", action: "click->scroll-to-section#scrollToSection" } %>
+            </li>
+          <% else %>
+            <li class="nav-item active">
+              <%= link_to "Home", root_path, class: "nav-link" %>
+            </li>
+          <% end  %>
           <li class="nav-item">
             <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
