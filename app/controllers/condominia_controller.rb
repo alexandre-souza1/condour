@@ -15,6 +15,8 @@ class CondominiaController < ApplicationController
 
   def show
     @condominium = Condominium.find(params[:id])
+    @rentals = current_user.rentals
+    @services = current_user.services
   end
 
   def new
