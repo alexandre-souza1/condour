@@ -7,4 +7,5 @@ class Resident < ApplicationRecord
     resident: 1,
     subsyndic: 2
   }
+  
 end
