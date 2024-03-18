@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :residents
+  has_many :rentals
+  has_many :services
   has_many :condominia, through: :residents
   has_one_attached :photo
   # Include default devise modules. Others available are:

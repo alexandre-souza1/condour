@@ -35,18 +35,48 @@
   </div>
 
   <div class="title"> <!--Aqui é uma Div para os títulos -->
-   <p>Próximos Eventos:</p>
+   <p>Seus próximos Eventos:</p>
   </div>
 
-  <div class="event"> <!--Aqui inicia os cartões dos eventos-->
-    <a href="#" class="event-card">Segunda-feira</a>
-    <a href="#" class="event-card">Terça-feira</a>
-    <a href="#" class="event-card">Quarta-feira</a>
-    <a href="#" class="event-card">Quinta-feira</a>
-    <a href="#" class="event-card">Sexta-feira</a>
-    <a href="#" class="event-card">Sábado</a>
-     <a href="#" class="event-card">Domingo</a>
-  </div>
+<div class="event"> <!--Aqui inicia os cartões dos eventos-->
+  <% sorted_items = (current_user.rentals + current_user.services).sort_by(&:date) %>
+  <% 7.times do |i| %>
+    <% item = sorted_items[i] %>
+    <% if item.present? %>
+      <% if item.is_a?(Rental) %>
+        <!-- Se for uma Rental -->
+        <div class="event-card text-center event-card-rental">
+          <%= link_to condominium_my_rentals_path(@condominium), title: "Reservas de área comum", class: "text-decoration-none" do %>
+            <h2 class="text-white pt-3"><%= item.date.strftime("%d") %></h2>
+            <h4 class="text-white"><%= item.date.strftime("%B") %></h4>
+            <p class="text-white"><%= truncate(item.place.name, length: 15) %></p>
+          <% end %>
+        </div>
+      <% elsif item.is_a?(Service) %>
+        <!-- Se for um Service -->
+        <div class="event-card text-center event-card-service">
+          <%= link_to condominium_services_path(@condominium), title: "Agendamento de Manutenção", class: "text-decoration-none" do %>
+            <h2 class="text-white pt-3"><%= item.date.strftime("%d") %></h2>
+            <h4 class="text-white"><%= item.date.strftime("%B") %></h4>
+            <p class="text-white"><%= truncate(item.description, length: 10) %></p>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <!-- Conteúdo do bloco padrão -->
+      <div class="event-card text-center event-card-default">
+        <%= link_to condominium_places_path(@condominium), title: "Reservas de área comum" do %>
+          <p class="text-white mb-1 p-1"><i class="fa-solid fa-plus"></i></p>
+          <p class="mb-0 text-white text-decoration-none">Reserva</p>
+        <% end %>
+        <%= link_to condominium_services_path(@condominium), title: "Agendamento de Manutenção" do %>
+          <p class="text-white border-top mb-1 p-1"><i class="fa-solid fa-plus"></i></p>
+          <p class="mb-1 text-white text-decoration-none">Manutenção</p>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
 
   <div class="title">
     <P>Avisos do Condomínio:</P> <!--Aqui é uma Div para os títulos -->

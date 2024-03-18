@@ -65,7 +65,7 @@
 .event { /* Adiciona as configurações do card maior onde estão contidos os cards menores de eventos */
   border-radius: 16px;
   width: 888px;
-  height: 200px;
+  height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,7 +79,7 @@
   color: white;
   border-radius: 4px;
   width: 120px;
-  height: 150px;
+  height: 120px;
   display: inline-block;
   margin: auto;
   margin-bottom: 10%;
@@ -213,4 +213,22 @@
     margin: 0 auto; /* Centraliza horizontalmente */
 
   }
+}
+
+.event-card-rental,
+.event-card-service,
+.event-card-default {
+  transition: background-color 0.3s ease;
+}
+
+.event-card-rental:hover {
+  background-color: #fc7e54; /* Laranja meio transparente */
+}
+
+.event-card-service:hover {
+  background-color: #fc7e54; /* Verde meio transparente */
+}
+
+.event-card-default:hover {
+  background-color: #fc7e54; /* Azul meio transparente */
 }
