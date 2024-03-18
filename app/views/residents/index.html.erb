@@ -14,24 +14,23 @@
   </div>
   <div class="col-12">
   <div class="cards-trip">
-    <% @residents.each do |resident| %>
-        <div class="card-trip">
-        <% if resident.user.photo.present? %>
-          <img src="<%= resident.user.photo.url %>" />
-        <% else %>
-          <%= image_tag "default_avatar.png" %>
-        <% end %>
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= resident.user.first_name %></h2>
-              <p><%= resident.role %></p>
-              <p><%= resident.residence_number %></p>
-              <p><%= resident.block %></p>
-
-            </div>
-          </div>
-        </div>
+<% @condominium.residents.each do |resident| %>
+  <div class="card-trip">
+    <% if resident.user.photo.present? %>
+      <img src="<%= resident.user.photo.url %>" />
+    <% else %>
+      <%= image_tag "default_avatar.png" %>
     <% end %>
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= resident.user.first_name %></h2>
+        <p><%= resident.role %></p>
+        <p><%= resident.residence_number %></p>
+        <p><%= resident.block %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
   </div>
 </div>
 </div>
