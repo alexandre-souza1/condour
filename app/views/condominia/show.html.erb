@@ -73,24 +73,20 @@
     <P>Avisos do Condomínio:</P> <!--Aqui é uma Div para os títulos -->
   </div>
 
-  <div id="carouselExampleIndicators2" class="carousel slide h-100" data-bs-ride="carousel">
+<div id="carouselExampleIndicators2" class="carousel slide h-100" data-bs-ride="carousel">
   <!-- Indicadores do carrossel -->
   <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <% @admin_posts.each_with_index do |post, index| %>
+      <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="<%= index %>" class="<%= 'active' if index.zero? %>" aria-current="<%= index.zero? ? 'true' : 'false' %>" aria-label="Slide <%= index + 1 %>"></button>
+    <% end %>
   </div>
   <!-- Itens do carrossel -->
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <%= render "posts/card-carroussel", post: @admin_posts[2], condominium: @condominium %>
-    </div>
-    <div class="carousel-item">
-      <%= render "posts/card-carroussel", post: @admin_posts[1], condominium: @condominium %>
-    </div>
-    <div class="carousel-item">
-      <%= render "posts/card-carroussel", post: @admin_posts[0], condominium: @condominium %>
-    </div>
+    <% @admin_posts.each_with_index do |post, index| %>
+      <div class="carousel-item <%= 'active' if index.zero? %>">
+        <%= render "posts/card-carroussel", post: post, condominium: @condominium %>
+      </div>
+    <% end %>
   </div>
   <!-- Controles do carrossel -->
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="prev">
