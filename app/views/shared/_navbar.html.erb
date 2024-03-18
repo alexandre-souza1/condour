@@ -33,9 +33,6 @@
               <%= link_to "Home", root_path, class: "nav-link" %>
             </li>
           <% end  %>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
           <li class="nav-item dropdown">
           <!-- Verifica se há uma foto anexada para o usuário atual -->
             <% if current_user.photo.attached? %>
