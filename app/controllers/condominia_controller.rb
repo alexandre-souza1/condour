@@ -15,6 +15,9 @@ class CondominiaController < ApplicationController
 
   def show
     @condominium = Condominium.find(params[:id])
+    # Obtém os últimos 3 posts do admin associados ao condomínio
+    @posts = Post.all
+    @admin_posts = @posts.where(condominium_id: @condominium.id, user_id: @condominium.user ).last(3)
   end
 
   def new

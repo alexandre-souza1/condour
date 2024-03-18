@@ -1,4 +1,5 @@
-<div class="card-post-blue card-post d-flex">
+<%= link_to new_condominium_post_path(condominium), class: "text-black text-decoration-none", title: "Comunidade" do %>
+<div class="card-post-blue-carroussel card-post d-flex">
   <div class="row w-100">
     <div  class="col">
 
@@ -27,23 +28,11 @@
       </div>
       <!-- Conteúdo do post-->
       <div class="card-post d-flex justify-content-start align-items-center w-100">
-        <p class="card-text"><%= post.content%></p>
+        <p class="card-text"><%= truncate(post.content, length: 140) %></p>
       </div>
 
-      <!-- botão Comentários -->
-
-
-      <!-- botões de deleção e edição do post-->
-      <% if current_user.admin || post.user == current_user %>
-        <div class="position-absolute top-0 end-0 mt-3 mx-3 d-flex">
-          <%= link_to post_path(post),
-          title: "Clique aqui para excluir este post",
-          data: {turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir?"} do %>
-            <i class="delete-icon fa-solid fa-trash"></i>
-          <% end %>
-        </div>
-      <% end %>
 
     </div>
   </div>
 </div>
+   <% end %>

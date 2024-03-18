@@ -52,31 +52,37 @@
     <P>Avisos do Condomínio:</P> <!--Aqui é uma Div para os títulos -->
   </div>
 
-  <div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="https://images.unsplash.com/photo-1629224834618-1cf72b367162?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Arraiá">
-        </div>
-        <div class="carousel-item">
-          <img src="https://images.unsplash.com/photo-1629224834618-1cf72b367162?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Notícias">
-        </div>
-        <div class="carousel-item">
-          <img src="https://images.unsplash.com/photo-1629224834618-1cf72b367162?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Manutenção Geral">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-      </div>
+  <div id="carouselExampleIndicators2" class="carousel slide h-100" data-bs-ride="carousel">
+  <!-- Indicadores do carrossel -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <!-- Itens do carrossel -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= render "posts/card-carroussel", post: @admin_posts[2], condominium: @condominium %>
+    </div>
+    <div class="carousel-item">
+      <%= render "posts/card-carroussel", post: @admin_posts[1], condominium: @condominium %>
+    </div>
+    <div class="carousel-item">
+      <%= render "posts/card-carroussel", post: @admin_posts[0], condominium: @condominium %>
+    </div>
+  </div>
+  <!-- Controles do carrossel -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+    </div>
    </div>
 </div>
