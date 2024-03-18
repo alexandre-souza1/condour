@@ -22,9 +22,9 @@ class RulesController < ApplicationController
   def destroy
     @rule = Rule.find(params[:id])
     if @rule.destroy
-      redirect_to condominium_rules_path(@rule), notice: "Regra excluída."
+      redirect_to rules_index_path, notice: "Regra excluída."
     else
-      redirect_to condominium_rules_path(@rule), notice: 'A regra não foi excluída'
+      redirect_to rules_index_path, notice: 'A regra não foi excluída'
     end
   end
 

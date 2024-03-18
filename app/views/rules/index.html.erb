@@ -21,7 +21,7 @@
         </div>
         <% if current_user.admin %>
         <div class="col-12 d-flex justify-content-end">
-          <%= link_to condominium_rules_path(rule),
+          <%= link_to rules_index_path,
           title: "Clique aqui para cancelar essa regra",
           data: {turbo_method: :delete, turbo_confirm: "Tem certeza que deseja cancelar?"} do %>
           <button class="btn btn-primary text-white font-bold me-4"><i class="fa-solid fa-trash"></i> Excluir regra </button>

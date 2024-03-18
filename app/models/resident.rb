@@ -7,4 +7,7 @@ class Resident < ApplicationRecord
     resident: 1,
     subsyndic: 2
   }
+
+  validates :residence_number, presence: true
+  validates :role, presence: true
 end
