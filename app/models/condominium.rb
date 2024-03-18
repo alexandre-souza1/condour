@@ -14,4 +14,9 @@ class Condominium < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
+
+  validates :name, presence: true
+  validates :address, presence: true
+  validates :cnpj, uniqueness: true
+  validates :photos, presence: true
 end
