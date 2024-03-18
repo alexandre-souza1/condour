@@ -31,3 +31,41 @@
   }
 
 }
+
+.card-post-blue-carroussel {
+  background-color: #0C2D57;
+  min-height: 400px;
+  height: 450px;
+  padding: 12px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+
+  .card-post {
+    background-color: white;
+    height: 100%;
+    width: 87%;
+    margin-left: 20px;
+    border-radius: 12px;
+    height: auto;
+    text-align: justify;
+    padding: 12px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  i {
+    font-size: 16px;
+  }
+
+  &:hover {
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+
+
+}
+
+
