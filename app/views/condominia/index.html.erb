@@ -14,7 +14,7 @@
   </section>
 
   <div class="row d-flex justify-content-between">
-    <div class="col-8">
+    <div class="col-12">
       <div class="cards-trip">
         <% @condominia.each do |condominium| %>
 
@@ -57,7 +57,7 @@
     </section>
 
     <div class="row d-flex justify-content-between">
-      <div class="col-8">
+      <div class="col-12">
         <div class="cards-trip">
           <% condominia = Condominium.joins(:residents).where(residents: { user_id: current_user.id })  %>
           <% condominia.each do |condominium| %>
