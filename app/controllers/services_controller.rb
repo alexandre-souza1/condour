@@ -38,10 +38,11 @@ class ServicesController < ApplicationController
 
   def destroy
     @service = Service.find(params[:id])
+    condominium = @service.user.residents.first.condominium
     if @service.destroy
-      redirect_to condominium_services_path(@service), notice: "Agendamento Excluído com sucesso."
+      redirect_to condominium_services_path(condominium), notice: "Agendamento Excluído com sucesso."
     else
-      redirect_to condominium_services_path(@service), notice: 'A ordem de compra não foi excluída'
+      redirect_to condominium_services_path(condominium), notice: 'A ordem de compra não foi excluída'
     end
   end
 
