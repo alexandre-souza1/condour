@@ -1,5 +1,6 @@
 class CondominiaController < ApplicationController
   before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index]
 
   def index
     @condominia = Condominium.all
