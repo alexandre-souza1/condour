@@ -2,18 +2,22 @@ class RulesController < ApplicationController
   before_action :set_condominium, only: [:new, :create, :index]
 
   def index
-    @rules = Rule.where(condominium_id: @condominium.id).order(created_at: :desc)
+    @rules = Rule.where(condominium_id: @condominium).order(created_at: :desc)
   end
 
   def new
     @rule = Rule.new
+    @rules = Rule.where(condominium_id: @condominium.id).order(created_at: :desc)
   end
 
   def create
     @rule = Rule.new(rule_params)
     @rule.condominium = @condominium
     if @rule.save
-      redirect_to condominium_rules_path(@condominium), notice: 'the condominium rule was successfully created.'
+      respond_to do |format|
+        format.html { redirect_to new_condominium_rule_path(@condominium), notice: 'Regra criada com sucesso!' }
+        format.text { render partial: "rules/card", locals: { rule: @rule }, formats: [:html] }
+      end
     else
       render :new, status: :unprocessable_entity
     end
@@ -22,9 +26,9 @@ class RulesController < ApplicationController
   def destroy
     @rule = Rule.find(params[:id])
     if @rule.destroy
-      redirect_to condominium_rules_path(@rule), notice: "Regra excluída."
+    redirect_to new_condominium_rule_path(@rule), notice: "Regra excluída com sucesso."
     else
-      redirect_to condominium_rules_path(@rule), notice: 'A regra não foi excluída'
+    redirect_to new_condominium_rule_path(@rule), alert: "Você não tem permissão para excluir."
     end
   end
 
@@ -35,6 +39,6 @@ class RulesController < ApplicationController
   end
 
   def rule_params
-    params.require(:rule).permit(:title, files: [])
+    params.require(:rule).permit(:title, :content)
   end
 end

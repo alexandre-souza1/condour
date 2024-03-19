@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_15_204156) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_19_103846) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -111,12 +111,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_15_204156) do
   end
 
   create_table "rules", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.bigint "condominium_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.binary "file"
-    t.integer "condominium_id"
-    t.integer "user_id"
-    t.string "title"
+    t.index ["condominium_id"], name: "index_rules_on_condominium_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -158,5 +158,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_15_204156) do
   add_foreign_key "rentals", "users"
   add_foreign_key "residents", "condominia"
   add_foreign_key "residents", "users"
+  add_foreign_key "rules", "condominia"
   add_foreign_key "services", "users"
 end

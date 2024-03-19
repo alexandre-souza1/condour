@@ -1,16 +1,26 @@
-<div class="bg-sessions">
-  <div class="container py-5">
-    <div class="row">
-      <div class="col-12 col-md-6 offset-lg-3 mb-10">
-        <div class="bg-white rounded p-3 shadow">
-          <h3>Adicione as Regras do Condomínio aqui</h3>
-          <%= simple_form_for [@condominium, @rule] do |f| %>
-          <%= f.input :title, label: "Título" %>
-          <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Adicionar arquivos" %>
-          <%= f.button :submit, "Adicionar arquivos", class: "btn btn-primary ml-auto text-white font-weight-bold" %>
-          <% end %>
+<%= render "shared/menu_style", condominium: @condominium %>
+  <div class="container card-all-posts p-3">
+      <div class="row">
+        <div class="col-12">
+          <div data-controller="post" class="bg-white rounded p-3 shadow justify-content-center text-center">
+            <div class="card-post-blue text-white">
+            <h4>Criar Regra</h4>
+            <%= simple_form_for [@condominium, @rule],
+              data: { action: "submit->post#createPost" } do |f|  %>
+              <%= f.input :title, as: :string, label: false, placeholder: "Título" %>
+              <%= f.input :content, as: :text, label: false, placeholder: "Conteúdo" %>
+              <%= f.button :submit, class: "btn btn-primary ml-auto text-white font-weight-bold" %>
+             <% end %>
+            </div>
+            <h4>Regras do Condomínio:</h4>
+            <div data-post-target="list" class="mt-5">
+              <%= render partial: "card", collection: @rules, as: :rule %>
+          </div>
+          <div class="position-absolute top-0 end-0 mt-3 mx-3 d-flex">
+
+        </div>
+         </div>
         </div>
       </div>
     </div>
   </div>
-</div>

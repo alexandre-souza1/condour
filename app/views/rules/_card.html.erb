@@ -1,0 +1,21 @@
+<div class="card-post-blue card-post d-flex">
+  <div class="row w-100">
+    <div  class="col">
+
+
+      <!-- Conteúdo -->
+      <div class="card-post justify-content-center align-items-center w-100">
+        <h4><%= rule.title %></h4>
+        <p><%= rule.content %></p>
+        <% if current_user.admin %>
+          <%= link_to condominium_rule_path(:condominium_id, rule),
+          title: "Clique aqui para excluir este post",
+          data: {turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir?"} do %>
+            <i class="delete-icon fa-solid fa-trash"></i>
+          <% end %>
+      <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
