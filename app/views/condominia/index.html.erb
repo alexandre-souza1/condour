@@ -22,12 +22,21 @@
             <img src="<%= condominium.photos.first.url %>" />
 
             <div class="card-trip-infos">
-              <%= link_to condominium_path(condominium), class: "text-decoration-none" do %>
-                <div>
-                  <h2><%= condominium.name %></h2>
-                  <p><%= truncate(condominium.address, length: 35, omission: '...') %></p>
-                </div>
-              <% end %>
+<% if current_user && current_user.residents.exists?(condominium_id: condominium.id) %>
+  <%= link_to condominium_path(condominium), class: "text-decoration-none" do %>
+    <div>
+      <h2><%= condominium.name %></h2>
+      <p><%= truncate(condominium.address, length: 35, omission: '...') %></p>
+    </div>
+  <% end %>
+<% elsif %>
+  <%= link_to condominium_apartments_path(condominium), class: "text-decoration-none" do %>
+    <div>
+      <h2><%= condominium.name %></h2>
+      <p><%= truncate(condominium.address, length: 35, omission: '...') %></p>
+    </div>
+  <% end %>
+<% end %>
             </div>
           </div>
 
@@ -37,24 +46,23 @@
   </div>
 
   <!-- Procura se a pessoa é residente, o ideal seria ter um resident = true / false no user-->
+<% if current_user %>
   <% is_resident = Resident.exists?(user_id: current_user.id) %>
+
   <% if is_resident %>
     <section id="my-condominia" data-scroll-to-section-target="mycondominia" class="row my-3 d-flex justify-content-between">
       <div class="col-12">
         <h2>Meus Condomínios - Residências e Administração:</h2>
       </div>
-
     </section>
 
     <div class="row d-flex justify-content-between">
       <div class="col-8">
         <div class="cards-trip">
-        <% condominia = Condominium.joins(:residents).where(residents: { user_id: current_user.id })  %>
+          <% condominia = Condominium.joins(:residents).where(residents: { user_id: current_user.id })  %>
           <% condominia.each do |condominium| %>
-
             <div class="card-trip">
               <img src="<%= condominium.photos.first.url %>" />
-
               <div class="card-trip-infos">
                 <%= link_to condominium_path(condominium), class: "text-decoration-none" do %>
                   <div>
@@ -64,12 +72,13 @@
                 <% end %>
               </div>
             </div>
-
           <% end %>
         </div>
       </div>
     </div>
-
   <% end %>
+<% else %>
+  <!-- Código a ser exibido para usuários não logados -->
+<% end %>
 
 </div>
